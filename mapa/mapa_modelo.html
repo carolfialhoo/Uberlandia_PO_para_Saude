@@ -1,0 +1,502 @@
+<title>Mapa da Rede SUS de Uberlândia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/*LEAFLET_CSS*/</style>
+<style>
+/* Layout: painel de controle no topo; mapa à esquerda e ficha do cenário à direita; abas de tabelas embaixo */
+:root {
+  --bg: #eef1ef; --paper: #fbfcfb; --ink: #17232b; --muted: #5b6a72; --rule: #d3dbd8; --soft: #e5ebe8;
+  --aps: #0b8579; --sec: #2f55a4; --ter: #7a3b69; --hl: #a86c10; --bom: #1f7a6d; --ruim: #a8323a;
+  --mapbg: #e3e8e5; --linha-setor: rgba(255,255,255,0.55);
+  --f-ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-num: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1417; --paper: #141c21; --ink: #e3e9ec; --muted: #9babb3; --rule: #2b373e; --soft: #1b252b;
+    --aps: #45c2b3; --sec: #8aa8ef; --ter: #d391c2; --hl: #e3ad4d; --bom: #5cc0a8; --ruim: #ec7b7f;
+    --mapbg: #1a2328; --linha-setor: rgba(10,16,19,0.55); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1417; --paper: #141c21; --ink: #e3e9ec; --muted: #9babb3; --rule: #2b373e; --soft: #1b252b;
+  --aps: #45c2b3; --sec: #8aa8ef; --ter: #d391c2; --hl: #e3ad4d; --bom: #5cc0a8; --ruim: #ec7b7f;
+  --mapbg: #1a2328; --linha-setor: rgba(10,16,19,0.55); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: var(--f-ui); font-size: 15px; line-height: 1.45; margin: 0; }
+.pagina { max-width: 1400px; margin: 0 auto; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin: 0; }
+h1 { font-size: clamp(1.4rem, 2.6vw, 1.95rem); line-height: 1.15; margin: 4px 0 6px; text-wrap: balance; letter-spacing: -0.01em; }
+.lead { color: var(--muted); max-width: 80ch; margin: 0 0 16px; }
+.controles { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; padding: 12px 14px; background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 12px; }
+.grupo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.grupo > .rot { font-size: 0.72rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button { font: inherit; font-size: 0.84rem; padding: 6px 10px; border-radius: 4px; border: 1px solid var(--rule);
+  background: var(--paper); color: var(--ink); cursor: pointer; }
+.seg button:hover { border-color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.seg .sep { width: 1px; background: var(--rule); margin: 2px 4px; }
+select { font: inherit; font-size: 0.86rem; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); }
+.toggles { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.86rem; }
+.toggles label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.corpo { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 12px; align-items: start; }
+@media (max-width: 960px) { .corpo { grid-template-columns: minmax(0, 1fr); } }
+.mapa-caixa { position: relative; background: var(--mapbg); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+#mapa { height: min(74vh, 760px); min-height: 420px; background: var(--mapbg); }
+.leaflet-container { background: var(--mapbg); font-family: var(--f-ui); }
+.zoom-atalhos { position: absolute; z-index: 500; top: 10px; right: 10px; display: flex; gap: 4px; }
+.zoom-atalhos button { font: inherit; font-size: 0.78rem; padding: 5px 9px; border-radius: 4px; border: 1px solid var(--rule);
+  background: var(--paper); color: var(--ink); cursor: pointer; }
+.leaflet-bar a { background: var(--paper); color: var(--ink); border-bottom-color: var(--rule); }
+.leaflet-bar a:hover { background: var(--soft); }
+.legenda { position: absolute; z-index: 500; left: 10px; bottom: 10px; background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 4px; padding: 8px 10px; font-size: 0.76rem; max-width: calc(100% - 20px); }
+.legenda .tt { font-weight: 600; margin-bottom: 4px; }
+.legenda .itens { display: flex; flex-wrap: wrap; gap: 3px 10px; }
+.legenda i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 4px; vertical-align: -2px; }
+.legenda .simb { display: flex; flex-wrap: wrap; gap: 3px 12px; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--rule); }
+.legenda svg { vertical-align: -3px; margin-right: 4px; }
+.lado { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.cartao { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; min-width: 0; }
+.cartao h2 { font-size: 1.02rem; margin: 0 0 2px; text-wrap: balance; }
+.cartao .sub { font-size: 0.82rem; color: var(--muted); margin: 0 0 10px; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.kpi { min-width: 0; }
+.kpi .r { font-size: 0.72rem; color: var(--muted); }
+.kpi .v { font-family: var(--f-num); font-size: 1.08rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.kpi .d { font-size: 0.72rem; color: var(--muted); }
+.d.melhor { color: var(--bom); } .d.pior { color: var(--ruim); }
+.barra-acc { display: flex; height: 12px; border-radius: 3px; overflow: hidden; margin: 8px 0 4px; }
+.barra-acc span { display: block; height: 100%; }
+.nota-acc { font-size: 0.74rem; color: var(--muted); }
+.ficha dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; font-size: 0.85rem; }
+.ficha dt { color: var(--muted); }
+.ficha dd { margin: 0; font-family: var(--f-num); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ficha .vazio { color: var(--muted); font-size: 0.86rem; }
+.pill { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 1px 6px; border-radius: 3px; border: 1px solid currentColor; margin-left: 6px; vertical-align: 2px; }
+.pill.nova { color: var(--aps); } .pill.exist { color: var(--muted); } .pill.fechada { color: var(--ruim); }
+table { border-collapse: collapse; width: 100%; font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-weight: 600; border-bottom: 1.5px solid var(--ink); padding: 5px 8px 5px 0; vertical-align: bottom; }
+td { border-bottom: 1px solid var(--rule); padding: 5px 8px 5px 0; vertical-align: top; }
+td.n, th.n { text-align: right; white-space: nowrap; font-family: var(--f-num); }
+tr.ativo td { background: color-mix(in srgb, var(--hl) 14%, transparent); }
+.rolar { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.abas { margin-top: 16px; }
+.abas [role="tablist"] { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--rule); }
+.abas [role="tab"] { font: inherit; font-size: 0.88rem; padding: 8px 12px; border: 0; border-bottom: 2px solid transparent;
+  background: none; color: var(--muted); cursor: pointer; }
+.abas [role="tab"][aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); font-weight: 600; }
+.abas [role="tabpanel"] { background: var(--paper); border: 1px solid var(--rule); border-top: 0; border-radius: 0 0 6px 6px; padding: 14px; }
+.abas p { max-width: 90ch; }
+.mono { font-family: var(--f-num); font-size: 0.86em; }
+.cl { display: inline-block; font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; padding: 0 5px;
+  border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.cl.dado { color: var(--aps); } .cl.norm { color: var(--sec); } .cl.inf { color: var(--hl); } .cl.dec { color: var(--ter); } .cl.exe { color: var(--ink); }
+a { color: var(--sec); }
+.rodape { font-size: 0.78rem; color: var(--muted); margin-top: 16px; }
+:focus-visible { outline: 2px solid var(--hl); outline-offset: 2px; }
+.leaflet-tooltip { background: var(--paper); color: var(--ink); border: 1px solid var(--rule); font-family: var(--f-ui); font-size: 0.8rem; box-shadow: none; }
+.leaflet-tooltip-top:before { border-top-color: var(--rule); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="pagina">
+  <p class="eyebrow">EPD899 · Rede SUS de Uberlândia em três níveis · rodada do Gurobi de 03/11/2026</p>
+  <h1>Mapa da rede SUS de Uberlândia: hoje e nos seis cenários do modelo</h1>
+  <p class="lead">Escolha um cenário para ver onde ficam as UBS, as unidades de atenção especializada (nível 2) e os hospitais, quanto custa a rede e quanto tempo cada setor censitário leva até a sua UBS. Clique num setor ou numa unidade para ver os dados.</p>
+
+  <div class="controles">
+    <div class="grupo">
+      <span class="rot" id="rot-cen">Cenário</span>
+      <div class="seg" id="seg-cen" role="group" aria-labelledby="rot-cen"></div>
+    </div>
+    <div class="grupo">
+      <label class="rot" for="sel-cor">Cor dos setores</label>
+      <select id="sel-cor">
+        <option value="tempo">Tempo até a UBS</option>
+        <option value="acess">Acessibilidade (G2SFCA)</option>
+        <option value="dens">Densidade populacional</option>
+      </select>
+    </div>
+    <div class="grupo">
+      <span class="rot">Camadas</span>
+      <div class="toggles">
+        <label><input type="checkbox" id="cb-ubs" checked> UBS</label>
+        <label><input type="checkbox" id="cb-n2" checked> Nível 2</label>
+        <label><input type="checkbox" id="cb-n3" checked> Hospitais</label>
+        <label><input type="checkbox" id="cb-ref" checked> Referências</label>
+        <label><input type="checkbox" id="cb-cand"> Candidatos não abertos</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="corpo">
+    <div class="mapa-caixa">
+      <div id="mapa" role="region" aria-label="Mapa dos setores censitários e das unidades de saúde"></div>
+      <div class="zoom-atalhos">
+        <button type="button" id="bt-sede">Sede</button>
+        <button type="button" id="bt-mun">Município</button>
+      </div>
+      <div class="legenda" id="legenda"></div>
+    </div>
+    <div class="lado">
+      <section class="cartao" aria-labelledby="t-cen">
+        <h2 id="t-cen"></h2>
+        <p class="sub" id="d-cen"></p>
+        <div class="kpis" id="kpis"></div>
+        <div class="barra-acc" id="barra-acc" role="img"></div>
+        <div class="nota-acc" id="nota-acc"></div>
+      </section>
+      <section class="cartao ficha" aria-live="polite" aria-labelledby="t-ficha">
+        <h2 id="t-ficha">Detalhes</h2>
+        <div id="ficha"><p class="vazio">Clique num setor censitário, numa UBS, numa unidade de nível 2 ou num hospital.</p></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="abas">
+    <div role="tablist" aria-label="Tabelas">
+      <button role="tab" id="tab-comp" aria-controls="pn-comp" aria-selected="true">Comparar cenários</button>
+      <button role="tab" id="tab-und" aria-controls="pn-und" aria-selected="false" tabindex="-1">Nível 2 e hospitais</button>
+      <button role="tab" id="tab-par" aria-controls="pn-par" aria-selected="false" tabindex="-1">Parâmetros</button>
+      <button role="tab" id="tab-met" aria-controls="pn-met" aria-selected="false" tabindex="-1">Como ler</button>
+    </div>
+    <div role="tabpanel" id="pn-comp" aria-labelledby="tab-comp"><div class="rolar" id="tb-comp"></div></div>
+    <div role="tabpanel" id="pn-und" aria-labelledby="tab-und" hidden><div class="rolar" id="tb-und"></div></div>
+    <div role="tabpanel" id="pn-par" aria-labelledby="tab-par" hidden>
+      <div class="rolar"><table>
+        <thead><tr><th>Parâmetro</th><th class="n">Valor</th><th>Classe</th><th>Fonte</th></tr></thead>
+        <tbody>
+          <tr><td>Limite de acesso casa → UBS</td><td class="n">5 km ou 25 min</td><td><span class="cl exe">exercício</span></td><td>Enunciado (a pé na cidade; de carro na zona rural)</td></tr>
+          <tr><td>Limite UBS → nível 2 / nível 2 → hospital</td><td class="n">30 km ou 1 h / 60 km ou 2 h</td><td><span class="cl exe">exercício</span></td><td>Enunciado (de carro)</td></tr>
+          <tr><td>Pessoas por eSF / por ACS / por eSB</td><td class="n">3.000 / 750 / 3.000</td><td><span class="cl exe">exercício</span></td><td><a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html" target="_blank" rel="noopener">PNAB, Portaria 2.436/2017</a>; eSB por decisão do grupo</td></tr>
+          <tr><td>População 2026</td><td class="n">768.339</td><td><span class="cl dado">dado</span></td><td><a href="https://sidra.ibge.gov.br/tabela/6579" target="_blank" rel="noopener">IBGE, SIDRA 6579</a>, distribuída pelos setores do <a href="https://www.ibge.gov.br/estatisticas/sociais/populacao/22827-censo-demografico-2022.html" target="_blank" rel="noopener">Censo 2022</a></td></tr>
+          <tr><td>Proporção que depende só do SUS</td><td class="n">62,2%</td><td><span class="cl dado">dado</span></td><td><a href="https://dadosabertos.ans.gov.br/FTP/PDA/taxa_de_cobertura_de_planos_de_saude-047/" target="_blank" rel="noopener">ANS, dados abertos (PDA 047)</a></td></tr>
+          <tr><td>Custo anual por eSF, tudo incluído</td><td class="n">R$ 1,264 mi</td><td><span class="cl dado">dado</span></td><td>Contrato de gestão 388/2023, 16º termo aditivo (arquivo <span class="mono">16°-ADITIVO-AO-CONTRATO-No-388-2023-Missao-Sal-da-Terra.pdf</span>)</td></tr>
+          <tr><td>Custo fixo de operar uma UBS</td><td class="n">R$ 180,7 mil/ano</td><td><span class="cl dado">dado</span></td><td>Idem (intercepto das despesas operacionais de 9 UBSF)</td></tr>
+          <tr><td>Adicional da UBS tradicional (por eAP-equivalente)</td><td class="n">R$ 617,8 mil/ano</td><td><span class="cl dado">dado</span></td><td>Idem (UBS Tibery e Custódio Pereira)</td></tr>
+          <tr><td>Custo fixo anual de UBS nova, Tipo I a V</td><td class="n">R$ 377 a 824 mil</td><td><span class="cl dado">dado</span></td><td>Investimento do Novo PAC Saúde × fator de anualização (8,5% a.a., 25 anos) + custo de operação</td></tr>
+          <tr><td>ACS / eSB / e-Multi (custo anual)</td><td class="n">R$ 54,3 mil / 174,2 mil / 502,4 mil</td><td><span class="cl norm">normativo</span></td><td>Pisos salariais e Portaria GM/MS 635/2023, × fator de encargos das OS (16,75)</td></tr>
+          <tr><td>Consultas especializadas</td><td class="n">645 por mil hab. SUS/ano</td><td><span class="cl norm">normativo</span></td><td>Caderno 1 de Critérios e Parâmetros Assistenciais (MS, 2017), Quadro 35</td></tr>
+          <tr><td>Ultrassom / tomografia / ressonância</td><td class="n">150 / 33,5 / 30 por mil</td><td><span class="cl norm">normativo</span></td><td>Caderno 1, itens 6.4, 6.2 e 6.7</td></tr>
+          <tr><td>Produtividade do especialista</td><td class="n">336 consultas/mês em 20 h</td><td><span class="cl dado">dado</span></td><td>Meta do contrato de gestão 388/2023, Anexo I</td></tr>
+          <tr><td>Custo fixo de policlínica nova</td><td class="n">R$ 2,30 mi/ano</td><td><span class="cl dado">dado</span></td><td>Obra da Policlínica do Jaraguá (Novo PAC, R$ 16,9 mi) anualizada + operação do CER</td></tr>
+          <tr><td>Tomógrafo / ressonância (custo anual)</td><td class="n">R$ 0,73 mi / 1,57 mi</td><td><span class="cl dado">dado</span></td><td>Preços no <a href="https://pncp.gov.br/app/editais" target="_blank" rel="noopener">PNCP</a>, anualizados (10 anos) + 10% de manutenção</td></tr>
+          <tr><td>Internações por ano (Caderno / observada)</td><td class="n">36.997 / 42.203</td><td><span class="cl norm">normativo</span></td><td>Caderno 1, Quadros 37–42; cenário "observada" = Caderno × 1,14 (SIH)</td></tr>
+          <tr><td>Ocupação-alvo (leito geral / UTI)</td><td class="n">81,5% / 65,5%</td><td><span class="cl norm">normativo</span></td><td>Caderno 1, Quadro 43</td></tr>
+          <tr><td>Custo anual por leito geral / UTI</td><td class="n">R$ 445,6 mil / 1,04 mi</td><td><span class="cl dado">dado</span></td><td>Despesa do Hospital Municipal (SPDM, 2025) + capital anualizado</td></tr>
+          <tr><td>Taxa de desconto; vida útil</td><td class="n">8,5% a.a.; 25 / 10 anos</td><td><span class="cl norm">normativo</span></td><td>Taxa Social de Desconto (ME, 2020); IN RFB 1.700/2017</td></tr>
+        </tbody>
+      </table></div>
+      <p class="rodape">Os 108 parâmetros, com fonte e raciocínio, estão na aba <span class="mono">Parametros</span> de <span class="mono">dados/base_uberlandia.xlsx</span> e no Apêndice C do relatório.</p>
+    </div>
+    <div role="tabpanel" id="pn-met" aria-labelledby="tab-met" hidden>
+      <p><b>Rede atual (AS-IS).</b> As 71 UBS, os 3 ambulatórios especializados e os 5 hospitais que existem hoje, com as equipes, os profissionais e os leitos do CNES. O tempo de cada setor é até a UBS existente mais próxima. O custo é o que a rede atual custaria pelas mesmas regras de custo do modelo; não é a despesa da Prefeitura, que inclui urgência, vigilância e administração e não inclui a folha federal do HC-UFU.</p>
+      <p><b>Cenários (TO-BE).</b> "Caderno" usa a demanda hospitalar do Caderno 1 do Ministério da Saúde; "observada" multiplica essa demanda por 1,14 (cenário de demanda alta). "Custo mínimo" é o modo 1 do modelo. "+5%" e "+10%" são o modo 2: a menor distância total com o orçamento limitado ao custo mínimo mais 5% ou 10%. Nos cenários, o tempo é até a UBS de referência que o modelo escolheu para o setor.</p>
+      <p><b>Acessibilidade (G2SFCA).</b> Para cada UBS, divide-se o número de eSF pela população que a alcança em até 25 min, com peso que cai com o tempo (gaussiano). Para cada setor, somam-se essas razões das UBS que ele alcança, com o mesmo peso. O índice é multiplicado por 3.000: <b>1,0</b> significa uma eSF ao alcance para cada 3.000 pessoas, o parâmetro do exercício. Abaixo de 1,0 falta equipe perto; acima, sobra. Setores sem UBS a 25 min ficam com 0.</p>
+      <p><b>Agregação.</b> O modelo foi resolvido com 392 pontos (setores urbanos agrupados). No mapa, cada um dos 1.924 setores herda a UBS do seu ponto; por isso alguns setores aparecem com tempo acima de 25 min mesmo dentro da regra "5 km ou 25 min" do modelo.</p>
+    </div>
+  </div>
+  <p class="rodape">Malha de setores: IBGE, Censo 2022. Tempos: OSRM sobre o OpenStreetMap. Unidades: CNES. Solução: modelo <span class="mono">modelo/modelo_rede_saude_v02.mod</span> resolvido com o Gurobi (base agregada, 392 pontos). Gerado por <span class="mono">codigo/analise_cenarios.py</span> e <span class="mono">mapa/montar_mapa.py</span>.</p>
+</div>
+
+<script type="application/json" id="dados">/*DADOS_JSON*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById("dados").textContent);
+  const ORD = D.ordem, ROT = D.rotulos;
+  const CEN = Object.fromEntries(D.cenarios.map(c => [c.cenario, c]));
+  const DESC = {
+    atual: "Rede de hoje (CNES). Custo pelas regras de custo do modelo, para comparar com os cenários.",
+    agregado_caderno_modo1: "Modo 1: menor custo anual que atende toda a população nos limites de acesso. Demanda hospitalar do Caderno 1.",
+    agregado_caderno_modo2_folga05: "Modo 2: menor distância com orçamento de até 5% acima do custo mínimo. Solução recomendada.",
+    agregado_caderno_modo2_folga10: "Modo 2: menor distância com orçamento de até 10% acima do custo mínimo.",
+    agregado_observada_modo1: "Modo 1 com demanda hospitalar alta (Caderno × 1,14).",
+    agregado_observada_modo2_folga05: "Modo 2 (+5%) com demanda hospitalar alta (Caderno × 1,14).",
+    agregado_observada_modo2_folga10: "Modo 2 (+10%) com demanda hospitalar alta (Caderno × 1,14)."
+  };
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const fmt = (v, d = 0) => v == null || Number.isNaN(v) ? "–" : v.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const pct = (v, d = 0) => v == null ? "–" : fmt(100 * v, d) + "%";
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // escalas de cor (mesmas do relatório)
+  const ESC = {
+    tempo: { tt: "Tempo até a UBS (min)", lim: [10, 15, 20, 25], cores: ["#d9ece4", "#9fcfbe", "#f1d58b", "#e8925a", "#a8323a"],
+      rot: ["até 10", "10–15", "15–20", "20–25", "mais de 25"] },
+    acess: { tt: "Índice de acessibilidade (1,0 = 1 eSF para 3.000 pessoas)", lim: [1e-9, 0.25, 0.5, 0.75, 1.0, 1.25],
+      cores: ["#b8b2a7", "#7a1f2b", "#c4513a", "#e9a15a", "#cfe0b4", "#6fb59a", "#1f7a6d"],
+      rot: ["sem UBS a 25 min", "< 0,25", "0,25–0,5", "0,5–0,75", "0,75–1,0", "1,0–1,25", "≥ 1,25"] },
+    dens: { tt: "Habitantes por km²", lim: [100, 1000, 3000, 6000, 10000], cores: ["#f1f3ef", "#d3dfdb", "#a9c4bd", "#78a39a", "#4b7f76", "#24574f"],
+      rot: ["< 100", "100–1 mil", "1–3 mil", "3–6 mil", "6–10 mil", "≥ 10 mil"] }
+  };
+  const corDe = (e, v) => { let k = 0; while (k < e.lim.length && v >= e.lim[k]) k++; return e.cores[k]; };
+  const corTempo = v => { const e = ESC.tempo; let k = 0; while (k < e.lim.length && v > e.lim[k]) k++; return e.cores[k]; };
+
+  let ic = 0, modoCor = "tempo";
+  const estado = () => ORD[ic];
+
+  // ---------- mapa ----------
+  const mapa = L.map("mapa", { preferCanvas: true, zoomSnap: 0.25, attributionControl: false, minZoom: 8 });
+  const setores = L.geoJSON(D.setores, {
+    style: f => estiloSetor(f),
+    onEachFeature: (f, l) => l.on("click", () => fichaSetor(f))
+  }).addTo(mapa);
+  // enquadramento da sede: quantis de 6% a 94% das UBS existentes (exclui as UBS dos distritos rurais)
+  const q = (xs, p) => { const s = [...xs].sort((a, b) => a - b); return s[Math.floor(p * (s.length - 1))]; };
+  const exU = D.ubs.filter(u => u.ex), las = exU.map(u => u.lat), los = exU.map(u => u.lon);
+  const bSede = L.latLngBounds([[q(las, 0.06), q(los, 0.06)], [q(las, 0.94), q(los, 0.94)]]).pad(0.12);
+  const bMun = setores.getBounds();
+  mapa.fitBounds(bSede);
+  document.getElementById("bt-sede").onclick = () => mapa.fitBounds(bSede);
+  document.getElementById("bt-mun").onclick = () => mapa.fitBounds(bMun);
+
+  function estiloSetor(f) {
+    const p = f.properties, k = ic;
+    let cor;
+    if (modoCor === "tempo") cor = corTempo(p.t[k]);
+    else if (modoCor === "acess") cor = corDe(ESC.acess, p.a[k]);
+    else cor = corDe(ESC.dens, p.de);
+    return { fillColor: cor, fillOpacity: 0.92, color: css("--linha-setor"), weight: 0.4 };
+  }
+
+  const gUBS = L.layerGroup().addTo(mapa), gN2 = L.layerGroup().addTo(mapa), gN3 = L.layerGroup().addTo(mapa);
+  const gRef = L.layerGroup().addTo(mapa), gCand = L.layerGroup();
+  const PALETA = ["#2f55a4", "#0b8579", "#a86c10", "#7a3b69", "#c4513a", "#4b7f76", "#6a5acd", "#8a6d3b", "#b03060", "#3d7ea6", "#5d8a2e", "#9c5221"];
+  const corN2 = {}; D.n2.forEach((u, i) => corN2[u.id] = PALETA[i % PALETA.length]);
+  const byId = {}; [...D.ubs, ...D.n2, ...D.n3].forEach(u => byId[u.id] = u);
+
+  function icone(forma, cor, borda, tam, vazio) {
+    const s = tam, h = s / 2;
+    const f = vazio ? "none" : cor;
+    const forma_svg = forma === "q"
+      ? `<rect x="1.5" y="1.5" width="${s - 3}" height="${s - 3}" rx="2" fill="${f}" stroke="${vazio ? cor : borda}" stroke-width="${vazio ? 1.6 : 2}"/>`
+      : `<path d="M${h} 1.5 L${s - 1.5} ${s - 2} L1.5 ${s - 2} Z" fill="${f}" stroke="${vazio ? cor : borda}" stroke-width="${vazio ? 1.6 : 2}" stroke-linejoin="round"/>`;
+    return L.divIcon({ className: "", iconSize: [s, s], iconAnchor: [h, h], html: `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}">${forma_svg}</svg>` });
+  }
+
+  function desenharUnidades() {
+    [gUBS, gN2, gN3, gRef, gCand].forEach(g => g.clearLayers());
+    const k = estado(), ink = css("--ink"), aps = css("--aps"), sec = css("--sec"), ter = css("--ter"), paper = css("--paper"), muted = css("--muted");
+    // UBS
+    D.ubs.forEach(u => {
+      let eq = null, nova = false;
+      if (k === "atual") { if (u.ex) eq = u.atual.eSF_eq; }
+      else if (u.cen[k]) { eq = u.cen[k].eSF; nova = !u.ex; }
+      if (eq != null) {
+        const m = L.circleMarker([u.lat, u.lon], { radius: 3 + 2.1 * Math.sqrt(Math.max(eq, 1)), color: nova ? paper : paper, weight: 1.2,
+          fillColor: nova ? aps : ink, fillOpacity: 0.95 });
+        m.bindTooltip(`${esc(u.nome)} · ${eq} eSF${nova ? " · nova" : ""}`, { direction: "top" });
+        m.on("click", e => { L.DomEvent.stopPropagation(e); fichaUBS(u); });
+        gUBS.addLayer(m);
+      } else {
+        const m = L.circleMarker([u.lat, u.lon], { radius: 3.5, color: muted, weight: 1.2, fillOpacity: 0 });
+        m.bindTooltip(`${esc(u.nome)} · candidato não aberto`, { direction: "top" });
+        m.on("click", e => { L.DomEvent.stopPropagation(e); fichaUBS(u); });
+        gCand.addLayer(m);
+      }
+    });
+    // nivel 2 e hospitais
+    const unid = (lista, grupo, forma, cor) => lista.forEach(u => {
+      const aberto = k === "atual" ? u.ex === 1 : !!u.cen[k];
+      const nova = aberto && !u.ex;
+      const ic_ = icone(forma, cor, nova ? css("--hl") : paper, nova ? 22 : 18, !aberto);
+      const m = L.marker([u.lat, u.lon], { icon: ic_, zIndexOffset: forma === "t" ? 900 : 800, keyboard: false });
+      m.bindTooltip(`${esc(u.nome)}${aberto ? (nova ? " · nova" : "") : " · candidato não aberto"}`, { direction: "top" });
+      m.on("click", () => forma === "q" ? fichaN2(u) : fichaN3(u));
+      (aberto ? grupo : gCand).addLayer(m);
+    });
+    unid(D.n2, gN2, "q", sec);
+    unid(D.n3, gN3, "t", ter);
+    // referencias
+    if (k !== "atual") {
+      D.ubs.forEach(u => {
+        const c = u.cen[k]; if (!c || !c.ref) return;
+        const d = byId[c.ref];
+        gRef.addLayer(L.polyline([[u.lat, u.lon], [d.lat, d.lon]], { color: corN2[c.ref], weight: 1.1, opacity: 0.75, interactive: false }));
+      });
+      D.n2.forEach(u => {
+        const c = u.cen[k]; if (!c || !c.ref) return;
+        const d = byId[c.ref];
+        gRef.addLayer(L.polyline([[u.lat, u.lon], [d.lat, d.lon]], { color: ter, weight: 2.4, opacity: 0.9, dashArray: "6 5", interactive: false }));
+      });
+    }
+    camadas();
+  }
+
+  function camadas() {
+    const liga = (id, g) => document.getElementById(id).checked ? g.addTo(mapa) : mapa.removeLayer(g);
+    liga("cb-ubs", gUBS); liga("cb-n2", gN2); liga("cb-n3", gN3); liga("cb-ref", gRef); liga("cb-cand", gCand);
+  }
+  ["cb-ubs", "cb-n2", "cb-n3", "cb-ref", "cb-cand"].forEach(id => document.getElementById(id).addEventListener("change", camadas));
+
+  // ---------- legenda ----------
+  function legenda() {
+    const e = ESC[modoCor];
+    const ink = css("--ink"), aps = css("--aps"), sec = css("--sec"), ter = css("--ter"), paper = css("--paper");
+    const sq = c => `<svg width="12" height="12"><rect x="1" y="1" width="10" height="10" rx="1.5" fill="${c}"/></svg>`;
+    const tri = c => `<svg width="13" height="12"><path d="M6.5 1 L12 11 L1 11 Z" fill="${c}"/></svg>`;
+    const ci = c => `<svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="${c}" stroke="${paper}"/></svg>`;
+    document.getElementById("legenda").innerHTML =
+      `<div class="tt">${e.tt}</div><div class="itens">${e.cores.map((c, i) => `<span><i style="background:${c}"></i>${e.rot[i]}</span>`).join("")}</div>` +
+      `<div class="simb"><span>${ci(ink)}UBS existente</span><span>${ci(aps)}UBS nova</span><span>${sq(sec)}nível 2</span><span>${tri(ter)}hospital</span><span>borda dourada = unidade nova</span></div>`;
+  }
+
+  // ---------- painel do cenário ----------
+  function painel() {
+    const k = estado(), c = CEN[k], a = CEN.atual;
+    document.getElementById("t-cen").textContent = ROT[ic];
+    document.getElementById("d-cen").textContent = DESC[k];
+    const delta = (v, v0, d, inverso, suf = "") => {
+      if (k === "atual" || v == null || v0 == null) return "";
+      const x = v - v0; if (Math.abs(x) < 1e-9) return `<span class="d">igual ao atual</span>`;
+      const bom = inverso ? x < 0 : x > 0;
+      return `<span class="d ${bom ? "melhor" : "pior"}">${x > 0 ? "+" : "−"}${fmt(Math.abs(x), d)}${suf} vs. atual</span>`;
+    };
+    const kp = (r, v, dl) => `<div class="kpi"><div class="r">${r}</div><div class="v">${v}</div>${dl}</div>`;
+    const custo = k === "atual" ? "Custo anual (regras do modelo)" : "Custo anual da rede";
+    document.getElementById("kpis").innerHTML = [
+      kp(custo, `R$ ${fmt(c.custo_bi, 3)} bi`, k === "atual" ? `<span class="d">não é a despesa da Prefeitura</span>` : `<span class="d">+${fmt(1000 * (c.custo_bi - a.custo_bi), 0)} mi vs. atual</span>`),
+      kp("APS / nível 2 / hospitais (R$ mi)", `${fmt(c.aps_mi)} / ${fmt(c.n2_mi)} / ${fmt(c.n3_mi)}`, ""),
+      kp("eSF (eSF-equivalentes)", fmt(c.eSF), delta(c.eSF, a.eSF, 0, false)),
+      kp("UBS novas · nível 2 novo · hosp. novo", `${c.ubs_novas} · ${c.n2_novas} · ${c.hosp_novos}`, ""),
+      kp("Distância média casa–UBS", `${fmt(c.dist_casa_ubs, 2)} km`, delta(c.dist_casa_ubs, a.dist_casa_ubs, 2, true, " km")),
+      kp("População urbana a mais de 25 min a pé", pct(c.pop_acima_25_urbana), delta(100 * c.pop_acima_25_urbana, 100 * a.pop_acima_25_urbana, 0, true, " p.p.")),
+      kp("Acessibilidade média (G2SFCA)", fmt(c.acess_media, 2), delta(c.acess_media, a.acess_media, 2, false)),
+      kp("População com índice ≥ 1,0", pct(c.acess_adequado), delta(100 * c.acess_adequado, 100 * a.acess_adequado, 0, false, " p.p."))
+    ].join("");
+    const partes = [["acess_sem", "#b8b2a7", "sem UBS a 25 min"], ["acess_abaixo_05", "#c4513a", "índice < 0,5"], ["acess_05_1", "#e9a15a", "0,5 a 1,0"], ["acess_adequado", "#1f7a6d", "≥ 1,0"]];
+    const barra = document.getElementById("barra-acc");
+    barra.innerHTML = partes.map(([f, cor]) => `<span style="width:${100 * c[f]}%;background:${cor}"></span>`).join("");
+    barra.setAttribute("aria-label", partes.map(([f, , r]) => `${r}: ${pct(c[f])}`).join("; "));
+    document.getElementById("nota-acc").innerHTML = "População por faixa do índice: " + partes.map(([f, cor, r]) => `<span style="color:${cor === "#b8b2a7" ? "inherit" : cor}">■</span> ${r} ${pct(c[f])}`).join(" · ") +
+      (c.gap != null ? ` · gap do Gurobi ${pct(c.gap, 1)}` : "");
+  }
+
+  // ---------- fichas ----------
+  const linhaDl = pares => `<dl>${pares.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl>`;
+  function fichaSetor(f) {
+    const p = f.properties, k = ic, u = D.ubs[p.u[k]], u0 = D.ubs[p.u[0]];
+    document.getElementById("t-ficha").textContent = `Setor ${p.s}`;
+    document.getElementById("ficha").innerHTML = linhaDl([
+      ["Bairro / distrito", `${esc(p.b)} · ${esc(p.di)}`],
+      ["Situação", p.r ? "rural (tempo de carro)" : "urbana (tempo a pé)"],
+      ["População 2026", fmt(p.p)], ["Densidade", `${fmt(p.de)} hab/km²`],
+      ["Ponto agregado", p.g],
+      [k === 0 ? "UBS existente mais próxima" : "UBS de referência", esc(u.nome)],
+      ["Tempo até a UBS", `${fmt(p.t[k], 1)} min` + (k ? ` (hoje: ${fmt(p.t[0], 1)} min, ${esc(u0.nome)})` : "")],
+      ["Índice de acessibilidade", fmt(p.a[k], 2) + (k ? ` (hoje: ${fmt(p.a[0], 2)})` : "")]
+    ]);
+  }
+  function fichaUBS(u) {
+    const k = estado(), c = u.cen[k], at = u.atual;
+    document.getElementById("t-ficha").innerHTML = esc(u.nome) + (u.ex ? `<span class="pill exist">existente</span>` : (c ? `<span class="pill nova">nova</span>` : `<span class="pill fechada">candidato</span>`));
+    const pares = [["CNES", u.cnes ?? "–"]];
+    if (u.end) pares.push(["Endereço", esc(u.end)]);
+    if (at) pares.push(["Hoje (CNES)", `${at.eSF} eSF + ${at.eAP} eAP (= ${fmt(at.eAP_eq, 1)} eSF) → ${at.eSF_eq} eSF-eq; ${at.eSB} eSB; ${at.ACS} ACS; ${at.eMulti} e-Multi`],
+      ["Capacidade hoje", `${fmt(at.eSF_eq * 3000)} pessoas (3.000 por eSF)`]);
+    if (k !== "atual") {
+      if (c) {
+        pares.push(["Porte no cenário", `Tipo ${["I", "II", "III", "IV", "V"][c.porte - 1]}`], ["Equipes no cenário", `${c.eSF} eSF; ${c.eSB} eSB; ${c.ACS} ACS; ${c.eMulti} e-Multi`],
+          ["População adscrita", `${fmt(c.pop)} (${fmt(100 * c.pop / (3000 * c.eSF))}% da capacidade das eSF)`],
+          ["Referência de nível 2", c.ref ? esc(byId[c.ref].nome) : "–"],
+          ["Razão eSF/população no alcance (×3.000)", fmt(c.R, 2)]);
+      } else pares.push(["No cenário", "não abre"]);
+    }
+    document.getElementById("ficha").innerHTML = linhaDl(pares);
+  }
+  const NOMES = { MED_ESP: "Médicos especialistas (FTE 40 h)", ENFERMEIRO: "Enfermeiros (FTE)", TEC_RADIOL: "Técnicos de radiologia", EQ_US: "Ultrassom", EQ_TC: "Tomógrafo", EQ_RM: "Ressonância",
+    LEITO_CLIN: "Leitos clínicos", LEITO_CIR: "Leitos cirúrgicos", LEITO_OBST: "Leitos obstétricos", LEITO_PED: "Leitos pediátricos", LEITO_UCI_N: "UCI neonatal",
+    LEITO_UTI_A: "UTI adulto", LEITO_UTI_P: "UTI pediátrica", LEITO_UTI_N: "UTI neonatal", MEDICO: "Médicos (FTE)", TEC_ENF: "Técnicos de enfermagem (FTE)",
+    CONS_ESP: "consultas especializadas", US: "ultrassons", TC: "tomografias", RM: "ressonâncias", INT_CLIN: "clínicas", INT_CIR: "cirúrgicas", INT_OBST: "obstétricas", INT_PED: "pediátricas", INT_NEO: "neonatais" };
+  function tabelaRec(u, k) {
+    const c = u.cen[k], ks = Object.keys(u.atual);
+    const linhas = ks.map(r => `<tr><td>${NOMES[r] || r}</td><td class="n">${u.atual[r]}</td><td class="n">${c ? (c.n[r] ?? 0) : "–"}</td><td class="n">${c && c.uso[r] != null ? pct(c.uso[r]) : "–"}</td></tr>`).join("");
+    return `<div class="rolar"><table><thead><tr><th>Recurso</th><th class="n">Hoje</th><th class="n">Cenário</th><th class="n">Uso</th></tr></thead><tbody>${linhas}</tbody></table></div>`;
+  }
+  function fichaN2(u) {
+    const k = estado(), c = u.cen[k];
+    document.getElementById("t-ficha").innerHTML = esc(u.nome) + (u.ex ? `<span class="pill exist">existente</span>` : (c ? `<span class="pill nova">nova</span>` : `<span class="pill fechada">candidato</span>`));
+    let h = "";
+    if (k !== "atual" && c) h += linhaDl([["Atendimentos/ano", Object.entries(c.rec).map(([s, v]) => `${fmt(v)} ${NOMES[s]}`).join("; ")],
+      ["Hospital de referência", c.ref ? esc(byId[c.ref].nome) : "–"],
+      ["UBS que encaminham para cá", String(D.ubs.filter(x => x.cen[k] && x.cen[k].ref === u.id).length)]]);
+    else if (k !== "atual") h += `<p class="vazio">Não abre neste cenário.</p>`;
+    document.getElementById("ficha").innerHTML = h + (k === "atual" && !u.ex ? `<p class="vazio">Candidato (terreno de UAI ou projeto do Novo PAC). Não existe hoje.</p>` : tabelaRec(u, k === "atual" ? "__" : k));
+  }
+  function fichaN3(u) {
+    const k = estado(), c = u.cen[k];
+    document.getElementById("t-ficha").innerHTML = esc(u.nome) + (u.ex ? `<span class="pill exist">existente</span>` : (c ? `<span class="pill nova">novo</span>` : `<span class="pill fechada">candidato</span>`));
+    let h = "";
+    if (k !== "atual" && c) h += linhaDl([["Internações/ano", fmt(Object.values(c.rec).reduce((s, v) => s + v, 0))], ["Por tipo", Object.entries(c.rec).filter(([, v]) => v > 0).map(([s, v]) => `${fmt(v)} ${NOMES[s]}`).join("; ") || "nenhuma"]]);
+    else if (k !== "atual") h += `<p class="vazio">Não abre neste cenário.</p>`;
+    const nota = u.id === "HOSP_2146355" ? `<p class="vazio">HC-UFU: o modelo usa 75,3% dos leitos e da equipe, a parcela de internações de residentes de Uberlândia (SIH).</p>` : "";
+    document.getElementById("ficha").innerHTML = h + (k === "atual" && !u.ex ? `<p class="vazio">Candidato a hospital (terreno de UAI). Não existe hoje.</p>` : tabelaRec(u, k === "atual" ? "__" : k)) + nota;
+  }
+
+  // ---------- tabelas ----------
+  function tabelaComp() {
+    const cols = [["rotulo", "Cenário", null], ["custo_bi", "Custo (R$ bi/ano)", 3], ["aps_mi", "APS (R$ mi)", 0], ["n2_mi", "Nível 2 (R$ mi)", 0], ["n3_mi", "Hospitais (R$ mi)", 0],
+      ["eSF", "eSF", 0], ["ubs_novas", "UBS novas", 0], ["n2_novas", "Nível 2 novo", 0], ["hosp_novos", "Hosp. novo", 0], ["dist_casa_ubs", "Casa–UBS (km)", 2],
+      ["pop_acima_25_urbana", "Urbana > 25 min", "p"], ["acess_media", "Acessib. média", 2], ["acess_adequado", "Índice ≥ 1,0", "p"], ["acess_sem", "Sem UBS a 25 min", "p"], ["gap", "Gap", "p1"]];
+    const cel = (c, [f, , d]) => d === null ? `<td>${esc(c[f])}</td>` : `<td class="n">${d === "p" ? pct(c[f]) : d === "p1" ? (c[f] == null ? "–" : pct(c[f], 1)) : fmt(c[f], d)}</td>`;
+    document.getElementById("tb-comp").innerHTML = `<table><thead><tr>${cols.map(([, r, d]) => `<th${d === null ? "" : ' class="n"'}>${r}</th>`).join("")}</tr></thead><tbody>${ORD.map((k, i) => `<tr class="${i === ic ? "ativo" : ""}">${cols.map(c => cel(CEN[k], c)).join("")}</tr>`).join("")}</tbody></table>` +
+      `<p class="rodape">Rede atual: custo calculado com as quantidades de hoje e os custos unitários do modelo. Gap = (solução − limitante)/solução, informado pelo Gurobi. Distâncias e tempos avaliados nos 1.924 setores.</p>`;
+  }
+  function tabelaUnd() {
+    const k = estado();
+    const linha = (u, tipo) => {
+      const c = k === "atual" ? null : u.cen[k];
+      const aberto = k === "atual" ? u.ex : !!c;
+      if (!aberto) return "";
+      const n = k === "atual" ? u.atual : c.n;
+      const resumo = tipo === 2 ? `${n.MED_ESP ?? 0} esp. · ${n.EQ_US ?? 0} US · ${n.EQ_TC ?? 0} TC · ${n.EQ_RM ?? 0} RM`
+        : `${["LEITO_CLIN", "LEITO_CIR", "LEITO_OBST", "LEITO_PED"].reduce((s, r) => s + (n[r] ?? 0), 0)} leitos gerais · ${["LEITO_UCI_N", "LEITO_UTI_A", "LEITO_UTI_P", "LEITO_UTI_N"].reduce((s, r) => s + (n[r] ?? 0), 0)} UTI/UCI`;
+      const at = tipo === 2 ? `${u.atual.MED_ESP} esp. · ${u.atual.EQ_US} US · ${u.atual.EQ_TC} TC · ${u.atual.EQ_RM} RM`
+        : `${["LEITO_CLIN", "LEITO_CIR", "LEITO_OBST", "LEITO_PED"].reduce((s, r) => s + (u.atual[r] ?? 0), 0)} gerais · ${["LEITO_UCI_N", "LEITO_UTI_A", "LEITO_UTI_P", "LEITO_UTI_N"].reduce((s, r) => s + (u.atual[r] ?? 0), 0)} UTI/UCI`;
+      const vol = c ? fmt(Object.values(c.rec).reduce((s, v) => s + v, 0)) : "–";
+      return `<tr><td>${tipo === 2 ? "Nível 2" : "Hospital"}</td><td>${esc(u.nome)}${u.ex ? "" : ' <span class="pill nova">nova</span>'}</td><td>${u.ex ? at : "–"}</td><td>${k === "atual" ? "–" : resumo}</td><td class="n">${vol}</td><td>${c && c.ref ? esc(byId[c.ref].nome) : "–"}</td></tr>`;
+    };
+    document.getElementById("tb-und").innerHTML = `<table><thead><tr><th>Nível</th><th>Unidade</th><th>Hoje</th><th>No cenário</th><th class="n">Atend./intern. por ano</th><th>Referência</th></tr></thead><tbody>${D.n2.map(u => linha(u, 2)).join("")}${D.n3.map(u => linha(u, 3)).join("")}</tbody></table>` +
+      `<p class="rodape">Hoje: capacidade convertida da produção SUS (SIA) para o nível 2 e leitos SUS do CNES para os hospitais (HC-UFU com 75,3%, a parcela de residentes). As unidades existentes não podem perder recursos no modelo (restrições R30 e R40).</p>`;
+  }
+
+  // ---------- controles ----------
+  const seg = document.getElementById("seg-cen");
+  ORD.forEach((k, i) => {
+    if (i === 1 || i === 4) { const s = document.createElement("span"); s.className = "sep"; seg.appendChild(s); }
+    const b = document.createElement("button"); b.type = "button"; b.textContent = ROT[i].replace("Rede atual (AS-IS)", "Atual (AS-IS)");
+    b.setAttribute("aria-pressed", i === ic ? "true" : "false");
+    b.onclick = () => { ic = i; atualizar(); };
+    seg.appendChild(b);
+  });
+  document.getElementById("sel-cor").addEventListener("change", e => { modoCor = e.target.value; setores.setStyle(estiloSetor); legenda(); });
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => abrirAba(i));
+    t.addEventListener("keydown", e => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { const j = (i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length; abrirAba(j); tabs[j].focus(); } });
+  });
+  function abrirAba(i) {
+    tabs.forEach((t, j) => { t.setAttribute("aria-selected", j === i ? "true" : "false"); t.tabIndex = j === i ? 0 : -1; document.getElementById(t.getAttribute("aria-controls")).hidden = j !== i; });
+  }
+
+  function atualizar() {
+    [...seg.querySelectorAll("button")].forEach((b, i) => b.setAttribute("aria-pressed", i === ic ? "true" : "false"));
+    setores.setStyle(estiloSetor);
+    desenharUnidades(); painel(); tabelaComp(); tabelaUnd(); legenda();
+  }
+  atualizar();
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  const tema = () => { setores.setStyle(estiloSetor); desenharUnidades(); legenda(); };
+  mq.addEventListener ? mq.addEventListener("change", tema) : mq.addListener(tema);
+  new MutationObserver(tema).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+})();
+</script>

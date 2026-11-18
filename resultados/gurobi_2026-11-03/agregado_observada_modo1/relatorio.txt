@@ -1,0 +1,971 @@
+
+================================================================
+ REDE HIERARQUICA DE ATENCAO A SAUDE  -  modo 1 (min custo)
+================================================================
+Populacao total ............       768338
+Proporcao 100% SUS .........        62.2%
+Demanda secundaria (ano) ...       410004
+Demanda terciaria (ano) ....        42203
+Custo total (ano) .......... 1387493275.46
+   APS / Sec / Ter ......... 540923610.60 / 68669584.04 / 777900080.82
+Distancia media casa-UBS ...        1.897 km
+Distancia media UBS-sec ....        6.660 km
+Distancia media sec-ter ....        4.461 km
+eSF totais: 279 (minimo teorico ceil(Pop/3000) = 257)
+>> Proximo passo: rode o modo 2 com orcamento = 1387493275.46 (ou com folga)
+
+--- APS: UBS abertas ---
+UBS_9686940  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17966 (100% da cap. eSF)
+UBS_9755918  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17705 (98% da cap. eSF)
+UBS_420883   [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14651 (98% da cap. eSF)
+UBS_2152274  [exist] porte=1  eSF=1 eSB=1 ACS=5 eMulti=0  pop=1265 (42% da cap. eSF)
+UBS_2146363  [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14914 (99% da cap. eSF)
+UBS_3009092  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17795 (99% da cap. eSF)
+UBS_3009106  [exist] porte=5  eSF=6 eSB=6 ACS=23 eMulti=1  pop=17028 (95% da cap. eSF)
+UBS_5309808  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5835 (97% da cap. eSF)
+UBS_9986545  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17887 (99% da cap. eSF)
+UBS_2152576  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17786 (99% da cap. eSF)
+UBS_9996478  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17996 (100% da cap. eSF)
+UBS_9779515  [exist] porte=5  eSF=5 eSB=5 ACS=19 eMulti=1  pop=14092 (94% da cap. eSF)
+UBS_420891   [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5584 (93% da cap. eSF)
+UBS_420905   [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=6000 (100% da cap. eSF)
+UBS_2152177  [exist] porte=1  eSF=1 eSB=1 ACS=4 eMulti=0  pop=544 (18% da cap. eSF)
+UBS_2152185  [exist] porte=1  eSF=1 eSB=1 ACS=3 eMulti=0  pop=1252 (42% da cap. eSF)
+UBS_2152258  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5863 (98% da cap. eSF)
+UBS_2152266  [exist] porte=2  eSF=2 eSB=2 ACS=12 eMulti=0  pop=5873 (98% da cap. eSF)
+UBS_2152312  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5772 (96% da cap. eSF)
+UBS_2152479  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17933 (100% da cap. eSF)
+UBS_2152487  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5916 (99% da cap. eSF)
+UBS_2152495  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17979 (100% da cap. eSF)
+UBS_2152517  [exist] porte=2  eSF=2 eSB=2 ACS=12 eMulti=0  pop=5708 (95% da cap. eSF)
+UBS_2152525  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17764 (99% da cap. eSF)
+UBS_2152533  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5976 (100% da cap. eSF)
+UBS_2152541  [exist] porte=3  eSF=3 eSB=3 ACS=12 eMulti=1  pop=8908 (99% da cap. eSF)
+UBS_2152568  [exist] porte=3  eSF=3 eSB=3 ACS=11 eMulti=1  pop=8224 (91% da cap. eSF)
+UBS_2152584  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17765 (99% da cap. eSF)
+UBS_2152592  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17894 (99% da cap. eSF)
+UBS_2152606  [exist] porte=2  eSF=2 eSB=2 ACS=11 eMulti=0  pop=5895 (98% da cap. eSF)
+UBS_2152614  [exist] porte=3  eSF=3 eSB=3 ACS=12 eMulti=1  pop=8840 (98% da cap. eSF)
+UBS_3009068  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5681 (95% da cap. eSF)
+UBS_3009084  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17836 (99% da cap. eSF)
+UBS_3012077  [exist] porte=1  eSF=1 eSB=1 ACS=4 eMulti=0  pop=2934 (98% da cap. eSF)
+UBS_3012085  [exist] porte=2  eSF=2 eSB=2 ACS=9 eMulti=0  pop=5975 (100% da cap. eSF)
+UBS_3012093  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17590 (98% da cap. eSF)
+UBS_3012107  [exist] porte=3  eSF=3 eSB=3 ACS=12 eMulti=1  pop=8954 (99% da cap. eSF)
+UBS_3018113  [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14910 (99% da cap. eSF)
+UBS_3032167  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5613 (94% da cap. eSF)
+UBS_3032183  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17951 (100% da cap. eSF)
+UBS_3035158  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5995 (100% da cap. eSF)
+UBS_3051617  [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14943 (100% da cap. eSF)
+UBS_3111075  [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14968 (100% da cap. eSF)
+UBS_3197727  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5752 (96% da cap. eSF)
+UBS_3439941  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17786 (99% da cap. eSF)
+UBS_3516873  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5768 (96% da cap. eSF)
+UBS_5053854  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5837 (97% da cap. eSF)
+UBS_5090350  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5682 (95% da cap. eSF)
+UBS_5090377  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17961 (100% da cap. eSF)
+UBS_5090881  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5926 (99% da cap. eSF)
+UBS_5272629  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5634 (94% da cap. eSF)
+UBS_5362776  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5827 (97% da cap. eSF)
+UBS_5613469  [exist] porte=4  eSF=4 eSB=4 ACS=16 eMulti=1  pop=11868 (99% da cap. eSF)
+UBS_5861160  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5756 (96% da cap. eSF)
+UBS_6908616  [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14676 (98% da cap. eSF)
+UBS_7044534  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5959 (99% da cap. eSF)
+UBS_7067771  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17873 (99% da cap. eSF)
+UBS_7067836  [exist] porte=2  eSF=2 eSB=2 ACS=7 eMulti=0  pop=4717 (79% da cap. eSF)
+UBS_7176147  [exist] porte=2  eSF=2 eSB=2 ACS=9 eMulti=0  pop=5202 (87% da cap. eSF)
+UBS_7424019  [exist] porte=3  eSF=3 eSB=3 ACS=12 eMulti=1  pop=8929 (99% da cap. eSF)
+UBS_7476620  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5874 (98% da cap. eSF)
+UBS_7523483  [exist] porte=3  eSF=3 eSB=3 ACS=12 eMulti=1  pop=8919 (99% da cap. eSF)
+UBS_7523491  [exist] porte=2  eSF=2 eSB=2 ACS=8 eMulti=0  pop=5280 (88% da cap. eSF)
+UBS_7523505  [exist] porte=2  eSF=2 eSB=2 ACS=7 eMulti=0  pop=5227 (87% da cap. eSF)
+UBS_7690649  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17384 (97% da cap. eSF)
+UBS_7774230  [exist] porte=1  eSF=1 eSB=1 ACS=5 eMulti=0  pop=1257 (42% da cap. eSF)
+UBS_7861842  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17885 (99% da cap. eSF)
+UBS_9444920  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17854 (99% da cap. eSF)
+UBS_9496742  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17843 (99% da cap. eSF)
+UBS_9496769  [exist] porte=5  eSF=5 eSB=5 ACS=20 eMulti=1  pop=14799 (99% da cap. eSF)
+UBS_9496777  [exist] porte=5  eSF=6 eSB=6 ACS=24 eMulti=1  pop=17876 (99% da cap. eSF)
+CAND_UBS_FRUTA_DO_CONDE [NOVA]  porte=1  eSF=1 eSB=1 ACS=2 eMulti=0  pop=1496 (50% da cap. eSF)
+CAND_UBS_05001146 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=656 (22% da cap. eSF)
+CAND_UBS_20000008 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=406 (14% da cap. eSF)
+CAND_UBS_20000038 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=401 (13% da cap. eSF)
+CAND_UBS_20000001 [NOVA]  porte=1  eSF=1 eSB=1 ACS=2 eMulti=0  pop=828 (28% da cap. eSF)
+CAND_UBS_05001115 [NOVA]  porte=1  eSF=1 eSB=1 ACS=2 eMulti=0  pop=1276 (43% da cap. eSF)
+CAND_UBS_20000004 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=266 (9% da cap. eSF)
+CAND_UBS_20000052 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=702 (23% da cap. eSF)
+CAND_UBS_20000003 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=256 (9% da cap. eSF)
+CAND_UBS_20000040 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=445 (15% da cap. eSF)
+CAND_UBS_05001121 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=289 (10% da cap. eSF)
+CAND_UBS_20000026 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=606 (20% da cap. eSF)
+CAND_UBS_05000570 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=442 (15% da cap. eSF)
+CAND_UBS_20000049 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=352 (12% da cap. eSF)
+CAND_UBS_05001106 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=98 (3% da cap. eSF)
+CAND_UBS_20000013 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=85 (3% da cap. eSF)
+CAND_UBS_20000018 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=65 (2% da cap. eSF)
+CAND_UBS_25000007 [NOVA]  porte=1  eSF=1 eSB=1 ACS=1 eMulti=0  pop=358 (12% da cap. eSF)
+
+--- Vinculo setor -> UBS ---
+G001       -> UBS_6908616  pop=   3987   0.90 km   12.0 min
+G002       -> UBS_5613469  pop=   3867   0.57 km    7.6 min
+G003       -> UBS_5090377  pop=   4233   1.42 km   18.9 min
+G004       -> UBS_2152525  pop=   3942   0.87 km   11.5 min
+G005       -> UBS_7523483  pop=   1465   1.11 km   14.8 min
+G006       -> UBS_2152487  pop=   4377   0.89 km   11.9 min
+G007       -> UBS_3009106  pop=   3222   1.21 km   16.2 min
+G008       -> UBS_3111075  pop=   3526   2.50 km   33.4 min
+G009       -> UBS_2152584  pop=   2929   3.57 km   47.6 min
+G010       -> UBS_3012077  pop=   2934   3.09 km   41.2 min
+G011       -> UBS_3009068  pop=   1485   2.71 km   36.2 min
+G012       -> UBS_9755918  pop=   2035   1.58 km   21.1 min
+G013       -> UBS_9986545  pop=   3068   1.08 km   14.4 min
+G014       -> UBS_3439941  pop=   2522   0.64 km    9.8 min
+G015       -> UBS_9496777  pop=    678   1.59 km   21.3 min
+G016       -> UBS_2146363  pop=   1594   1.56 km   20.8 min
+G017       -> UBS_2152592  pop=   3081   4.76 km   63.5 min
+G018       -> UBS_9444920  pop=   3360   3.18 km   42.3 min
+G019       -> UBS_2152576  pop=   5840   1.27 km   16.9 min
+G020       -> UBS_3516873  pop=   3665   0.39 km    5.2 min
+G021       -> UBS_2152495  pop=   2116   0.97 km   13.0 min
+G022       -> UBS_3111075  pop=   3102   0.58 km    7.7 min
+G023       -> UBS_7067771  pop=   3429   4.15 km   55.4 min
+G024       -> UBS_7176147  pop=   1640   1.46 km   19.5 min
+G025       -> UBS_420883   pop=   2810   3.44 km   45.8 min
+G026       -> UBS_5272629  pop=   3582   0.52 km    6.9 min
+G027       -> UBS_3051617  pop=   2631   2.43 km   32.4 min
+G028       -> UBS_420891   pop=   1112   0.32 km    4.3 min
+G029       -> UBS_3009092  pop=   3225   0.57 km    7.5 min
+G030       -> UBS_3032183  pop=   2074   4.83 km   64.4 min
+G031       -> UBS_2152592  pop=   2392   2.89 km   38.5 min
+G032       -> UBS_9496742  pop=   2002   0.84 km   11.2 min
+G033       -> UBS_7523491  pop=   2021   1.21 km   16.1 min
+G034       -> UBS_3032183  pop=   2560   4.92 km   65.6 min
+G035       -> UBS_2152614  pop=   3078   1.20 km   16.0 min
+G036       -> UBS_9755918  pop=   2388   1.38 km   18.3 min
+G037       -> UBS_2152592  pop=   1557   1.24 km   16.5 min
+G038       -> UBS_7176147  pop=   3562   1.06 km   14.2 min
+G039       -> UBS_3012107  pop=   3118   2.81 km   37.5 min
+G040       -> UBS_7690649  pop=   2659   0.86 km   11.5 min
+G041       -> UBS_3009084  pop=   3201   1.15 km   15.4 min
+G042       -> UBS_9496769  pop=   3304   0.76 km   10.2 min
+G043       -> UBS_5861160  pop=   3103   2.30 km   30.6 min
+G044       -> UBS_3012093  pop=   1354   4.30 km   57.4 min
+G045       -> UBS_7861842  pop=   4871   1.04 km   13.9 min
+G046       -> UBS_2152533  pop=   2442   1.05 km   14.5 min
+G047       -> UBS_2152584  pop=   3820   1.83 km   24.5 min
+G048       -> UBS_9996478  pop=   2323   1.42 km   18.9 min
+G049       -> UBS_3018113  pop=   4534   0.50 km    6.7 min
+G050       -> UBS_9779515  pop=   3176   0.43 km    5.8 min
+G051       -> UBS_3009084  pop=   4651   4.11 km   54.8 min
+G052       -> UBS_3439941  pop=   3188   1.97 km   26.3 min
+G053       -> UBS_5053854  pop=   4103   2.60 km   34.7 min
+G054       -> UBS_2152517  pop=   3057   1.55 km   20.7 min
+G055       -> UBS_3012107  pop=   2156   4.71 km   62.9 min
+G056       -> UBS_2152479  pop=   2347   0.82 km   10.9 min
+G057       -> CAND_UBS_05001115 pop=    209   2.51 km   33.5 min
+G058       -> UBS_420883   pop=   3028   1.87 km   24.9 min
+G059       -> UBS_7044534  pop=   1764   0.68 km    9.1 min
+G060       -> UBS_2152495  pop=   2730   1.08 km   14.4 min
+G061       -> UBS_2152606  pop=   2200   0.99 km   13.1 min
+G062       -> UBS_2152525  pop=   4031   0.38 km    5.1 min
+G063       -> UBS_9496777  pop=   2376   0.53 km    7.0 min
+G064       -> UBS_9444920  pop=   2706   1.33 km   17.8 min
+G065       -> UBS_3009106  pop=   1261   2.80 km   37.4 min
+G066       -> UBS_9496742  pop=   2266   0.37 km    5.0 min
+G067       -> UBS_3197727  pop=   2256   0.67 km    8.9 min
+G068       -> UBS_2152541  pop=   1589   1.08 km   14.5 min
+G069       -> UBS_7044534  pop=   1036   4.42 km   58.9 min
+G070       -> UBS_7523483  pop=   4606   0.40 km    5.3 min
+G071       -> UBS_3012093  pop=   3047   0.91 km   12.2 min
+G072       -> UBS_2152533  pop=   2729   3.68 km   49.2 min
+G073       -> UBS_7690649  pop=   1305   4.18 km   55.7 min
+G074       -> UBS_2152312  pop=    804   0.37 km    5.0 min
+G075       -> UBS_3009084  pop=   3201   0.71 km    9.4 min
+G076       -> UBS_9686940  pop=   2194   0.35 km    4.6 min
+G077       -> UBS_5613469  pop=   2241   2.20 km   29.4 min
+G078       -> UBS_7690649  pop=   2226   1.25 km   16.6 min
+G079       -> UBS_7067771  pop=   2859   3.79 km   50.6 min
+G080       -> UBS_3018113  pop=   2991   1.22 km   16.3 min
+G081       -> UBS_9496777  pop=   4203   0.86 km   11.5 min
+G082       -> UBS_7476620  pop=   3341   0.85 km   11.3 min
+G083       -> UBS_9755918  pop=   2311   0.39 km    5.2 min
+G084       -> UBS_3032183  pop=   2307   4.24 km   56.6 min
+G085       -> UBS_3009106  pop=   2840   0.37 km    5.0 min
+G086       -> UBS_3009092  pop=   3476   0.55 km    7.4 min
+G087       -> UBS_2146363  pop=   2043   0.50 km    6.7 min
+G088       -> UBS_2152584  pop=   2624   2.55 km   34.0 min
+G089       -> UBS_7067836  pop=   2130   1.36 km   18.1 min
+G090       -> CAND_UBS_05001146 pop=    487   0.00 km    0.0 min
+G091       -> UBS_9996478  pop=   2165   0.71 km    9.4 min
+G092       -> UBS_5090881  pop=   1927   4.15 km   55.4 min
+G093       -> UBS_2152525  pop=   1824   2.94 km   39.2 min
+G094       -> UBS_2152614  pop=   3084   0.36 km    4.8 min
+G095       -> UBS_9779515  pop=    709   2.77 km   36.9 min
+G096       -> UBS_2152495  pop=   1990   0.66 km    8.8 min
+G097       -> UBS_6908616  pop=   1158   3.64 km   48.5 min
+G098       -> UBS_7690649  pop=   3365   2.47 km   32.9 min
+G099       -> UBS_5362776  pop=   2351   0.67 km    8.9 min
+G100       -> UBS_2146363  pop=   2620   1.40 km   18.6 min
+G101       -> UBS_9496742  pop=   2786   1.55 km   20.7 min
+G102       -> UBS_3035158  pop=   3901   1.16 km   15.5 min
+G103       -> UBS_3009106  pop=   1238   4.06 km   54.1 min
+G104       -> UBS_9779515  pop=   2220   2.54 km   33.9 min
+G105       -> UBS_420883   pop=   3227   2.80 km   37.3 min
+G106       -> UBS_7424019  pop=   2652   1.15 km   15.3 min
+G107       -> UBS_2152576  pop=   1591   4.19 km   55.9 min
+G108       -> UBS_420883   pop=   2335   4.99 km   66.5 min
+G109       -> UBS_6908616  pop=   3998   1.42 km   18.9 min
+G110       -> UBS_9444920  pop=   1236   2.25 km   30.0 min
+G111       -> UBS_7523505  pop=   4690   0.32 km    4.4 min
+G112       -> UBS_2152479  pop=   1597   3.91 km   52.2 min
+G113       -> UBS_3051617  pop=   3158   1.21 km   16.1 min
+G114       -> UBS_5309808  pop=   3761   0.94 km   12.6 min
+G115       -> UBS_2152479  pop=   2140   0.49 km    6.5 min
+G116       -> UBS_2152576  pop=   1834   2.17 km   28.9 min
+G117       -> UBS_3032183  pop=   2888   0.86 km   11.5 min
+G118       -> UBS_7861842  pop=   5075   2.03 km   27.1 min
+G119       -> UBS_3032183  pop=   2444   4.95 km   66.0 min
+G120       -> UBS_3012107  pop=   2787   0.74 km    9.9 min
+G121       -> UBS_9986545  pop=   3767   0.45 km    6.0 min
+G122       -> UBS_9755918  pop=   4388   4.27 km   57.0 min
+G123       -> UBS_2152495  pop=   2102   0.86 km   11.5 min
+G124       -> UBS_9496769  pop=   2914   0.55 km    7.4 min
+G125       -> UBS_9496769  pop=   2982   2.08 km   27.8 min
+G126       -> UBS_7067836  pop=   2587   0.84 km   11.2 min
+G127       -> UBS_420891   pop=   1599   4.59 km   61.2 min
+G128       -> UBS_3009084  pop=   1938   0.86 km   11.5 min
+G129       -> UBS_2146363  pop=    746   4.04 km   53.9 min
+G130       -> UBS_2152541  pop=   2264   2.01 km   26.8 min
+G131       -> UBS_9996478  pop=   2157   1.60 km   21.4 min
+G132       -> UBS_9686940  pop=   4413   3.01 km   40.2 min
+G133       -> UBS_5090377  pop=   5057   1.76 km   23.4 min
+G134       -> UBS_3032183  pop=   3198   4.07 km   54.3 min
+G135       -> UBS_420883   pop=   3251   2.65 km   35.3 min
+G136       -> UBS_5272629  pop=   1747   2.73 km   36.4 min
+G137       -> UBS_2152495  pop=   2528   0.99 km   13.2 min
+G138       -> UBS_2152541  pop=   2244   0.75 km   10.1 min
+G139       -> UBS_2152312  pop=    897   3.42 km   45.6 min
+G140       -> UBS_2152533  pop=    100   3.59 km   47.9 min
+G141       -> UBS_420905   pop=   2551   0.39 km    5.2 min
+G142       -> UBS_3012093  pop=   4219   1.58 km   21.1 min
+G143       -> UBS_2152479  pop=   3690   0.41 km    5.4 min
+G144       -> UBS_2152495  pop=   2182   1.91 km   25.5 min
+G145       -> UBS_9496777  pop=   3579   1.14 km   15.3 min
+G146       -> UBS_9496742  pop=   2557   3.22 km   43.0 min
+G147       -> UBS_2152266  pop=   2999   1.52 km   20.3 min
+G148       -> UBS_3012093  pop=   2096   2.24 km   29.9 min
+G149       -> UBS_2152614  pop=   2678   0.95 km   12.7 min
+G150       -> UBS_3032167  pop=   3140   1.72 km   22.9 min
+G151       -> UBS_2152592  pop=   1965   4.92 km   65.6 min
+G152       -> UBS_3111075  pop=   2217   0.27 km    3.6 min
+G153       -> UBS_3439941  pop=   4379   0.57 km    7.8 min
+G154       -> UBS_9686940  pop=   1639   0.92 km   12.3 min
+G155       -> UBS_3051617  pop=   1750   3.99 km   53.2 min
+G156       -> UBS_2152576  pop=   1537   0.73 km    9.7 min
+G157       -> UBS_9996478  pop=   3539   1.06 km   14.1 min
+G158       -> UBS_2152479  pop=   3930   0.93 km   12.5 min
+G159       -> UBS_7523483  pop=   1153   2.31 km   30.8 min
+G160       -> UBS_5362776  pop=   3476   0.86 km   11.5 min
+G161       -> UBS_2152584  pop=   1601   2.33 km   31.1 min
+G162       -> UBS_2152495  pop=   2075   0.29 km    3.8 min
+G163       -> UBS_3009092  pop=   1343   1.02 km   13.6 min
+G164       -> UBS_420891   pop=    613   4.67 km   62.2 min
+G165       -> UBS_2152576  pop=   2008   2.38 km   31.7 min
+G166       -> UBS_9996478  pop=   3617   0.52 km    6.9 min
+G167       -> UBS_7690649  pop=   3551   1.78 km   23.7 min
+G168       -> UBS_3439941  pop=   3886   1.51 km   20.2 min
+G169       -> UBS_3032167  pop=   2473   4.48 km   59.8 min
+G170       -> UBS_3051617  pop=   2245   1.58 km   21.0 min
+G171       -> UBS_9444920  pop=   2842   2.60 km   34.7 min
+G172       -> UBS_3009106  pop=   3476   0.65 km    8.7 min
+G173       -> UBS_2152576  pop=   2024   1.95 km   26.0 min
+G174       -> UBS_3012093  pop=   2859   1.33 km   17.8 min
+G175       -> UBS_9496777  pop=   2870   1.92 km   25.6 min
+G176       -> UBS_2152568  pop=   3555   2.61 km   34.9 min
+G177       -> CAND_UBS_FRUTA_DO_CONDE pop=    502   2.09 km   27.9 min
+G178       -> UBS_9755918  pop=   2093   1.66 km   22.1 min
+G179       -> UBS_6908616  pop=   2717   4.78 km   63.7 min
+G180       -> UBS_2152606  pop=   3695   0.88 km   11.8 min
+G181       -> UBS_2152592  pop=   2753   1.48 km   19.7 min
+G182       -> UBS_9496742  pop=   2596   0.88 km   11.8 min
+G183       -> UBS_5090881  pop=   2161   0.73 km    9.8 min
+G184       -> UBS_3009084  pop=   2552   1.23 km   16.4 min
+G185       -> UBS_6908616  pop=   2816   4.90 km   65.3 min
+G186       -> UBS_420905   pop=   2355   1.38 km   18.4 min
+G187       -> UBS_9496769  pop=   2516   1.35 km   18.0 min
+G188       -> UBS_9779515  pop=   1541   3.13 km   41.7 min
+G189       -> UBS_9779515  pop=   2833   3.83 km   51.1 min
+G190       -> UBS_3018113  pop=   4136   1.09 km   14.5 min
+G191       -> UBS_9686940  pop=   3641   1.31 km   17.6 min
+G192       -> UBS_3009106  pop=   3169   2.83 km   37.7 min
+G193       -> UBS_9496742  pop=   2741   1.02 km   13.6 min
+G194       -> UBS_9686940  pop=   1879   0.85 km   11.4 min
+G195       -> UBS_7424019  pop=   2632   2.83 km   37.7 min
+G196       -> UBS_3012085  pop=   3675   0.58 km    7.7 min
+G197       -> UBS_7424019  pop=   2634   0.46 km    6.1 min
+G198       -> UBS_420891   pop=   1718   2.18 km   29.1 min
+G199       -> UBS_7861842  pop=   2574   0.48 km    6.4 min
+G200       -> UBS_9444920  pop=   3054   1.10 km   14.6 min
+G201       -> UBS_5090377  pop=   3533   1.18 km   15.7 min
+G202       -> UBS_7690649  pop=   4278   0.76 km   10.1 min
+G203       -> UBS_2152584  pop=   1960   1.16 km   15.4 min
+G204       -> UBS_2152568  pop=   2525   3.95 km   52.6 min
+G205       -> UBS_7067771  pop=   1204   1.95 km   26.0 min
+G206       -> UBS_9444920  pop=   2068   1.87 km   25.0 min
+G207       -> UBS_7067771  pop=   4114   3.27 km   43.7 min
+G208       -> UBS_3012085  pop=   2300   4.17 km   55.7 min
+G209       -> UBS_2146363  pop=   2770   1.26 km   16.8 min
+G210       -> UBS_2152533  pop=    705   1.25 km   17.6 min
+G211       -> UBS_5309808  pop=   2074   4.84 km   64.7 min
+G212       -> UBS_2152495  pop=   2256   2.26 km   30.2 min
+G213       -> UBS_3009092  pop=   1848   0.88 km   11.7 min
+G214       -> UBS_420905   pop=   1094   4.20 km   56.0 min
+G215       -> UBS_7523483  pop=   1684   1.05 km   13.9 min
+G216       -> UBS_3439941  pop=   3811   1.55 km   20.7 min
+G217       -> UBS_3012093  pop=   1316   0.56 km    7.5 min
+G218       -> UBS_7861842  pop=   3054   2.68 km   35.7 min
+G219       -> UBS_2152312  pop=    595   2.09 km   27.8 min
+G220       -> UBS_9496777  pop=   2276   0.60 km    8.0 min
+G221       -> UBS_7861842  pop=   2311   0.61 km    8.2 min
+G222       -> UBS_3516873  pop=   2103   1.08 km   14.4 min
+G223       -> UBS_2152592  pop=   1924   0.55 km    7.3 min
+G224       -> UBS_9686940  pop=   2537   1.04 km   13.8 min
+G225       -> UBS_3012107  pop=    893   4.04 km   53.9 min
+G226       -> UBS_3111075  pop=   2911   4.93 km   65.7 min
+G227       -> UBS_3009106  pop=   1822   4.36 km   58.1 min
+G228       -> UBS_5090377  pop=   1886   1.77 km   23.6 min
+G229       -> UBS_9444920  pop=   2588   0.48 km    6.4 min
+G230       -> UBS_7523491  pop=   3259   0.37 km    5.0 min
+G231       -> UBS_2152312  pop=   3476   4.02 km   53.6 min
+G232       -> UBS_7067771  pop=   1964   2.71 km   36.1 min
+G233       -> UBS_9996478  pop=   4195   1.50 km   20.0 min
+G234       -> UBS_5090350  pop=   2789   0.79 km   10.5 min
+G235       -> UBS_2152576  pop=   2952   2.16 km   28.8 min
+G236       -> UBS_2152266  pop=   2221   3.38 km   45.1 min
+G237       -> UBS_9496769  pop=   1261   4.17 km   55.8 min
+G238       -> UBS_2152525  pop=   2397   0.64 km    8.6 min
+G239       -> UBS_5090377  pop=   2740   0.63 km    8.4 min
+G240       -> UBS_3018113  pop=   3249   0.50 km    6.7 min
+G241       -> UBS_2152525  pop=   3031   1.34 km   17.8 min
+G242       -> UBS_3009092  pop=   2171   1.77 km   23.6 min
+G243       -> UBS_5613469  pop=   3384   0.53 km    7.1 min
+G244       -> UBS_2152479  pop=   1979   1.34 km   17.8 min
+G245       -> UBS_3032183  pop=   2480   0.39 km    5.2 min
+G246       -> UBS_3111075  pop=   1626   2.27 km   30.3 min
+G247       -> UBS_3197727  pop=    954   4.86 km   64.9 min
+G248       -> UBS_3051617  pop=   3433   1.22 km   16.2 min
+G249       -> UBS_3012093  pop=    930   3.30 km   44.0 min
+G250       -> UBS_7067771  pop=   3078   3.52 km   47.0 min
+G251       -> UBS_2146363  pop=   2945   3.65 km   48.7 min
+G252       -> UBS_9986545  pop=   2641   0.83 km   11.1 min
+G253       -> UBS_7044534  pop=   3159   0.52 km    7.0 min
+G254       -> UBS_2152517  pop=   2651   2.42 km   32.2 min
+G255       -> UBS_9755918  pop=   1453   0.48 km    6.5 min
+G256       -> UBS_2152592  pop=   2327   2.57 km   34.2 min
+G257       -> UBS_2152584  pop=   1544   2.03 km   27.1 min
+G258       -> UBS_2152541  pop=   2811   0.31 km    4.1 min
+G259       -> UBS_3035158  pop=   2094   4.56 km   60.8 min
+G260       -> UBS_3012093  pop=   1086   4.70 km   62.7 min
+G261       -> UBS_9986545  pop=   1977   2.10 km   28.0 min
+G262       -> UBS_5613469  pop=   2376   1.51 km   20.3 min
+G263       -> UBS_420891   pop=    542   1.44 km   19.2 min
+G264       -> UBS_9779515  pop=    970   3.63 km   48.4 min
+G265       -> UBS_9755918  pop=   2274   0.86 km   11.5 min
+G266       -> UBS_9496777  pop=   1894   2.04 km   27.2 min
+G267       -> UBS_3009084  pop=   2293   0.56 km    7.4 min
+G268       -> UBS_3009068  pop=   2220   0.90 km   12.1 min
+G269       -> UBS_3051617  pop=   1726   4.20 km   56.0 min
+G270       -> UBS_3197727  pop=   2542   0.67 km    9.0 min
+G271       -> UBS_9496769  pop=   1822   2.00 km   26.8 min
+G272       -> UBS_7476620  pop=   2533   1.13 km   15.1 min
+G273       -> CAND_UBS_05001115 pop=    103   0.33 km    4.4 min
+G274       -> UBS_9496742  pop=   2895   0.44 km    5.8 min
+G275       -> UBS_5053854  pop=   1552   3.11 km   41.4 min
+G276       -> UBS_3009068  pop=   1976   1.86 km   24.8 min
+G277       -> UBS_2152479  pop=   1404   1.23 km   16.4 min
+G278       -> UBS_2152584  pop=   2045   3.00 km   40.0 min
+G279       -> UBS_3012093  pop=    683   2.90 km   38.7 min
+G280       -> UBS_5090350  pop=   2893   4.77 km   63.6 min
+G281       -> UBS_3009092  pop=   3174   1.13 km   15.1 min
+G282       -> UBS_3009092  pop=   2558   0.97 km   12.9 min
+G283       -> UBS_2152487  pop=   1539   3.16 km   42.1 min
+G284       -> UBS_9986545  pop=   1098   2.82 km   37.6 min
+G285       -> UBS_7067771  pop=   1225   2.67 km   35.6 min
+G286       -> UBS_9986545  pop=   2610   0.83 km   11.1 min
+G287       -> UBS_9779515  pop=    897   2.74 km   36.5 min
+G288       -> UBS_7424019  pop=   1011   3.16 km   42.2 min
+G289       -> UBS_2146363  pop=   2196   0.76 km   10.1 min
+G290       -> UBS_2152525  pop=   2539   1.32 km   17.6 min
+G291       -> UBS_3111075  pop=   1586   0.66 km    8.8 min
+G292       -> UBS_5090881  pop=   1838   4.05 km   54.0 min
+G293       -> UBS_9686940  pop=   1663   3.31 km   44.3 min
+G294       -> UBS_5861160  pop=   2495   0.40 km    5.4 min
+G295       -> UBS_2152479  pop=    846   1.03 km   13.7 min
+G296       -> UBS_5090377  pop=    512   3.65 km   48.7 min
+G297       -> UBS_2152592  pop=   1895   2.34 km   31.2 min
+G298       -> UBS_2152568  pop=   2144   1.82 km   24.3 min
+G299       -> UBS_2152584  pop=   1242   0.36 km    4.8 min
+G300       -> UBS_9986545  pop=   2726   1.82 km   24.2 min
+R05000564  -> UBS_7523505  pop=    347  17.17 km   21.5 min
+R05000569  -> UBS_7774230  pop=    189  23.63 km   23.0 min
+R05000570  -> CAND_UBS_05000570 pop=    212   0.00 km    0.0 min
+R05000571  -> UBS_7523483  pop=     11  12.78 km   17.2 min
+R05000572  -> CAND_UBS_05001115 pop=    148  19.71 km   23.8 min
+R05000573  -> UBS_7523505  pop=    140  14.08 km   17.1 min
+R05000574  -> UBS_5272629  pop=    305  15.25 km   19.9 min
+R05000575  -> CAND_UBS_05001115 pop=    413  22.32 km   21.5 min
+R05001106  -> CAND_UBS_05001106 pop=     98   0.00 km    0.0 min
+R05001107  -> UBS_5861160  pop=    158  21.73 km   21.7 min
+R05001108  -> UBS_5053854  pop=    182  11.33 km   14.9 min
+R05001109  -> CAND_UBS_FRUTA_DO_CONDE pop=    353   6.85 km    7.8 min
+R05001110  -> CAND_UBS_FRUTA_DO_CONDE pop=    158   9.93 km   14.4 min
+R05001111  -> UBS_7774230  pop=    350   8.89 km   14.2 min
+R05001113  -> CAND_UBS_05000570 pop=    124   9.22 km   18.9 min
+R05001118  -> CAND_UBS_05001121 pop=     62  15.07 km   19.7 min
+R05001119  -> CAND_UBS_05001121 pop=      6  15.10 km   20.2 min
+R05001120  -> CAND_UBS_05001121 pop=     81  14.51 km   21.0 min
+R05001121  -> CAND_UBS_05001121 pop=     68   0.00 km    0.0 min
+R05001122  -> CAND_UBS_05001121 pop=     72   3.48 km    6.3 min
+R05001123  -> UBS_7774230  pop=    110   5.18 km    9.6 min
+R05001132  -> UBS_7523505  pop=     50  13.46 km   14.4 min
+R05001708  -> CAND_UBS_05001115 pop=    190  23.24 km   24.5 min
+R05002082  -> UBS_7774230  pop=    301  21.07 km   20.4 min
+R05002084  -> CAND_UBS_20000049 pop=    168   5.79 km    9.5 min
+R05002092  -> UBS_7774230  pop=    307   6.48 km   12.3 min
+R10000001  -> UBS_2152177  pop=    262   0.23 km    3.1 min
+R10000002  -> UBS_2152177  pop=     81   7.78 km   13.9 min
+R10000003  -> UBS_2152177  pop=    201   0.38 km    5.1 min
+R10000004  -> UBS_2152185  pop=    214  10.77 km   17.3 min
+R10000005  -> CAND_UBS_05001115 pop=    213  11.23 km   17.9 min
+R15000001  -> UBS_2152185  pop=    538   0.23 km    3.1 min
+R15000002  -> UBS_2152185  pop=    287   3.43 km    7.5 min
+R15000003  -> UBS_2152185  pop=    149   6.51 km    9.9 min
+R15000004  -> CAND_UBS_05000570 pop=    106  12.67 km   22.3 min
+R15000005  -> UBS_2152185  pop=     64  14.02 km   23.4 min
+R20000001  -> CAND_UBS_20000001 pop=    343   0.00 km    0.0 min
+R20000002  -> CAND_UBS_20000001 pop=     94   8.13 km   12.2 min
+R20000003  -> CAND_UBS_20000003 pop=    256   0.00 km    0.0 min
+R20000004  -> CAND_UBS_20000004 pop=    266   0.00 km    0.0 min
+R20000007  -> UBS_2152258  pop=    433   2.35 km   31.3 min
+R20000008  -> CAND_UBS_20000008 pop=    406   0.00 km    0.0 min
+R20000009  -> UBS_2152258  pop=    465   1.91 km   25.5 min
+R20000011  -> CAND_UBS_20000001 pop=    221  10.47 km   12.5 min
+R20000012  -> CAND_UBS_20000001 pop=    170  11.88 km   17.9 min
+R20000013  -> CAND_UBS_20000013 pop=     85   0.00 km    0.0 min
+R20000014  -> CAND_UBS_05001146 pop=    169  22.46 km   23.5 min
+R20000015  -> CAND_UBS_20000026 pop=     96  16.25 km   20.0 min
+R20000016  -> CAND_UBS_FRUTA_DO_CONDE pop=     50  12.02 km   11.7 min
+R20000018  -> CAND_UBS_20000018 pop=     65   0.00 km    0.0 min
+R20000021  -> UBS_9779515  pop=   1746   4.49 km   60.9 min
+R20000023  -> UBS_2152258  pop=    415   2.17 km   28.9 min
+R20000024  -> CAND_UBS_20000052 pop=    363  12.00 km   22.0 min
+R20000025  -> CAND_UBS_20000026 pop=    296   2.33 km   31.0 min
+R20000026  -> CAND_UBS_20000026 pop=    214   0.00 km    0.0 min
+R20000027  -> UBS_2152258  pop=    617   2.81 km   37.4 min
+R20000028  -> UBS_2152258  pop=    561   3.73 km   49.8 min
+R20000029  -> UBS_9755918  pop=    568   2.27 km   30.2 min
+R20000031  -> UBS_2152258  pop=    504   1.50 km   20.1 min
+R20000032  -> UBS_2152258  pop=    476   1.85 km   24.6 min
+R20000034  -> UBS_2152258  pop=    198   0.13 km    1.7 min
+R20000036  -> UBS_2152258  pop=    637   3.64 km   48.6 min
+R20000038  -> CAND_UBS_20000038 pop=    401   0.00 km    0.0 min
+R20000039  -> CAND_UBS_20000040 pop=    192  10.77 km   22.8 min
+R20000040  -> CAND_UBS_20000040 pop=    253   0.00 km    0.0 min
+R20000041  -> UBS_2152258  pop=    141   1.23 km   16.4 min
+R20000042  -> UBS_2152258  pop=    349   1.16 km   15.5 min
+R20000043  -> UBS_2152258  pop=    296   0.64 km    8.5 min
+R20000044  -> UBS_2152258  pop=    386   1.15 km   15.3 min
+R20000045  -> UBS_2152266  pop=    490   3.53 km   47.1 min
+R20000046  -> UBS_2152266  pop=    163   3.78 km   50.4 min
+R20000047  -> UBS_2152258  pop=    385   3.14 km   41.8 min
+R20000048  -> UBS_9755918  pop=    195   3.65 km   48.7 min
+R20000049  -> CAND_UBS_20000049 pop=    184   0.00 km    0.0 min
+R20000050  -> CAND_UBS_20000052 pop=     74  10.81 km   23.2 min
+R20000051  -> CAND_UBS_FRUTA_DO_CONDE pop=    433  22.39 km   20.4 min
+R20000052  -> CAND_UBS_20000052 pop=    265   0.00 km    0.0 min
+R25000001  -> UBS_2152274  pop=     39   0.72 km    9.6 min
+R25000003  -> UBS_2152274  pop=    281   0.31 km    4.2 min
+R25000004  -> UBS_2152274  pop=    101   0.44 km    5.8 min
+R25000005  -> UBS_2152274  pop=     57   0.27 km    3.6 min
+R25000006  -> UBS_2152274  pop=    102   0.83 km   11.0 min
+R25000007  -> CAND_UBS_25000007 pop=    154   0.00 km    0.0 min
+R25000009  -> UBS_2152274  pop=     26  16.01 km   21.0 min
+R25000011  -> UBS_2152274  pop=     82  14.13 km   18.0 min
+R25000012  -> UBS_2152274  pop=     20  14.27 km   17.8 min
+R25000013  -> UBS_2152274  pop=     20  13.92 km   19.8 min
+R25000014  -> UBS_2152274  pop=    459  19.52 km   22.0 min
+R25000015  -> UBS_2152274  pop=     22  15.65 km   20.1 min
+R25000016  -> CAND_UBS_25000007 pop=     41  13.21 km   23.9 min
+R25000017  -> CAND_UBS_25000007 pop=    163  15.88 km   24.0 min
+R25000019  -> UBS_2152274  pop=     56  14.52 km   22.6 min
+
+--- Atencao secundaria ---
+AAE_4684281  [exist] atendimentos/ano=167703
+AAE_2146339  [exist] atendimentos/ano=67274
+AAE_6102174  [exist] atendimentos/ano=66463
+CAND_AAE_MARTINS [NOVA]  atendimentos/ano=47222
+CAND_AAE_PAMPULHA [NOVA]  atendimentos/ano=61343
+    AAE_4684281  MED_ESP         62  (uso 39%)
+    AAE_4684281  ENFERMEIRO      21  (uso 38%)
+    AAE_4684281  TEC_RADIOL      18  (uso 46%)
+    AAE_4684281  EQ_US           25  (uso 39%)
+    AAE_4684281  EQ_TC            5  (uso 39%)
+    AAE_4684281  EQ_RM            2  (uso 59%)
+    AAE_2146339  MED_ESP         25  (uso 39%)
+    AAE_2146339  ENFERMEIRO      10  (uso 32%)
+    AAE_2146339  TEC_RADIOL       7  (uso 47%)
+    AAE_2146339  EQ_US            4  (uso 97%)
+    AAE_2146339  EQ_TC            4  (uso 20%)
+    AAE_2146339  EQ_RM            1  (uso 47%)
+    AAE_6102174  MED_ESP         10  (uso 96%)
+    AAE_6102174  ENFERMEIRO       4  (uso 80%)
+    AAE_6102174  TEC_RADIOL       4  (uso 81%)
+    AAE_6102174  EQ_US            4  (uso 96%)
+    AAE_6102174  EQ_TC            1  (uso 77%)
+    AAE_6102174  EQ_RM            1  (uso 46%)
+    CAND_AAE_MARTINS MED_ESP          7  (uso 97%)
+    CAND_AAE_MARTINS ENFERMEIRO       3  (uso 76%)
+    CAND_AAE_MARTINS TEC_RADIOL       3  (uso 77%)
+    CAND_AAE_MARTINS EQ_US            3  (uso 91%)
+    CAND_AAE_MARTINS EQ_TC            1  (uso 55%)
+    CAND_AAE_MARTINS EQ_RM            1  (uso 33%)
+    CAND_AAE_PAMPULHA MED_ESP          9  (uso 98%)
+    CAND_AAE_PAMPULHA ENFERMEIRO       3  (uso 99%)
+    CAND_AAE_PAMPULHA TEC_RADIOL       3  (uso 100%)
+    CAND_AAE_PAMPULHA EQ_US            4  (uso 89%)
+    CAND_AAE_PAMPULHA EQ_TC            1  (uso 71%)
+    CAND_AAE_PAMPULHA EQ_RM            1  (uso 43%)
+    UBS_9686940  -> AAE_4684281  CONS_ESP            7203.1  (1.4 km)
+    UBS_9686940  -> AAE_4684281  US                  1675.1  (1.4 km)
+    UBS_9686940  -> AAE_4684281  TC                   373.8  (1.4 km)
+    UBS_9686940  -> AAE_4684281  RM                   335.0  (1.4 km)
+    UBS_9755918  -> AAE_4684281  CONS_ESP            7098.5  (16.3 km)
+    UBS_9755918  -> AAE_4684281  US                  1650.8  (16.3 km)
+    UBS_9755918  -> AAE_4684281  TC                   368.4  (16.3 km)
+    UBS_9755918  -> AAE_4684281  RM                   330.2  (16.3 km)
+    UBS_420883   -> CAND_AAE_PAMPULHA CONS_ESP            5874.1  (4.2 km)
+    UBS_420883   -> CAND_AAE_PAMPULHA US                  1366.1  (4.2 km)
+    UBS_420883   -> CAND_AAE_PAMPULHA TC                   304.8  (4.2 km)
+    UBS_420883   -> CAND_AAE_PAMPULHA RM                   273.2  (4.2 km)
+    UBS_2152274  -> AAE_6102174  CONS_ESP             507.2  (47.0 km)
+    UBS_2152274  -> AAE_6102174  US                   117.9  (47.0 km)
+    UBS_2152274  -> AAE_6102174  TC                    26.3  (47.0 km)
+    UBS_2152274  -> AAE_6102174  RM                    23.6  (47.0 km)
+    UBS_2146363  -> AAE_2146339  CONS_ESP            5979.5  (8.6 km)
+    UBS_2146363  -> AAE_2146339  US                  1390.6  (8.6 km)
+    UBS_2146363  -> AAE_2146339  TC                   310.3  (8.6 km)
+    UBS_2146363  -> AAE_2146339  RM                   278.1  (8.6 km)
+    UBS_3009092  -> AAE_4684281  CONS_ESP            7134.6  (6.8 km)
+    UBS_3009092  -> AAE_4684281  US                  1659.2  (6.8 km)
+    UBS_3009092  -> AAE_4684281  TC                   370.2  (6.8 km)
+    UBS_3009092  -> AAE_4684281  RM                   331.8  (6.8 km)
+    UBS_3009106  -> CAND_AAE_MARTINS CONS_ESP            6827.1  (8.8 km)
+    UBS_3009106  -> CAND_AAE_MARTINS US                  1587.7  (8.8 km)
+    UBS_3009106  -> CAND_AAE_MARTINS TC                   354.3  (8.8 km)
+    UBS_3009106  -> CAND_AAE_MARTINS RM                   317.5  (8.8 km)
+    UBS_5309808  -> CAND_AAE_MARTINS CONS_ESP            2339.4  (2.5 km)
+    UBS_5309808  -> CAND_AAE_MARTINS US                   544.1  (2.5 km)
+    UBS_5309808  -> CAND_AAE_MARTINS TC                   121.4  (2.5 km)
+    UBS_5309808  -> CAND_AAE_MARTINS RM                   108.8  (2.5 km)
+    UBS_9986545  -> AAE_2146339  CONS_ESP            7171.5  (3.8 km)
+    UBS_9986545  -> AAE_2146339  US                  1667.8  (3.8 km)
+    UBS_9986545  -> AAE_2146339  TC                   372.1  (3.8 km)
+    UBS_9986545  -> AAE_2146339  RM                   333.6  (3.8 km)
+    UBS_2152576  -> CAND_AAE_MARTINS CONS_ESP            7131.0  (4.4 km)
+    UBS_2152576  -> CAND_AAE_MARTINS US                  1658.4  (4.4 km)
+    UBS_2152576  -> CAND_AAE_MARTINS TC                   370.0  (4.4 km)
+    UBS_2152576  -> CAND_AAE_MARTINS RM                   331.7  (4.4 km)
+    UBS_9996478  -> AAE_4684281  CONS_ESP            7215.2  (4.5 km)
+    UBS_9996478  -> AAE_4684281  US                  1677.9  (4.5 km)
+    UBS_9996478  -> AAE_4684281  TC                   374.4  (4.5 km)
+    UBS_9996478  -> AAE_4684281  RM                   335.6  (4.5 km)
+    UBS_9779515  -> AAE_4684281  CONS_ESP            5649.9  (11.4 km)
+    UBS_9779515  -> AAE_4684281  US                  1313.9  (11.4 km)
+    UBS_9779515  -> AAE_4684281  TC                   293.2  (11.4 km)
+    UBS_9779515  -> AAE_4684281  RM                   262.8  (11.4 km)
+    UBS_420891   -> AAE_4684281  CONS_ESP            2238.8  (7.4 km)
+    UBS_420891   -> AAE_4684281  US                   520.7  (7.4 km)
+    UBS_420891   -> AAE_4684281  TC                   116.2  (7.4 km)
+    UBS_420891   -> AAE_4684281  RM                   104.1  (7.4 km)
+    UBS_420905   -> AAE_4684281  CONS_ESP            2405.6  (8.1 km)
+    UBS_420905   -> AAE_4684281  US                   559.4  (8.1 km)
+    UBS_420905   -> AAE_4684281  TC                   124.8  (8.1 km)
+    UBS_420905   -> AAE_4684281  RM                   111.9  (8.1 km)
+    UBS_2152177  -> AAE_2146339  CONS_ESP             218.1  (23.7 km)
+    UBS_2152177  -> AAE_2146339  US                    50.7  (23.7 km)
+    UBS_2152177  -> AAE_2146339  TC                    11.3  (23.7 km)
+    UBS_2152177  -> AAE_2146339  RM                    10.1  (23.7 km)
+    UBS_2152185  -> AAE_2146339  CONS_ESP             502.0  (27.0 km)
+    UBS_2152185  -> AAE_2146339  US                   116.7  (27.0 km)
+    UBS_2152185  -> AAE_2146339  TC                    26.0  (27.0 km)
+    UBS_2152185  -> AAE_2146339  RM                    23.3  (27.0 km)
+    UBS_2152258  -> AAE_4684281  CONS_ESP            2350.7  (15.6 km)
+    UBS_2152258  -> AAE_4684281  US                   546.7  (15.6 km)
+    UBS_2152258  -> AAE_4684281  TC                   122.0  (15.6 km)
+    UBS_2152258  -> AAE_4684281  RM                   109.3  (15.6 km)
+    UBS_2152266  -> AAE_4684281  CONS_ESP            2354.7  (9.2 km)
+    UBS_2152266  -> AAE_4684281  US                   547.6  (9.2 km)
+    UBS_2152266  -> AAE_4684281  TC                   122.2  (9.2 km)
+    UBS_2152266  -> AAE_4684281  RM                   109.5  (9.2 km)
+    UBS_2152312  -> AAE_6102174  CONS_ESP            2314.2  (7.3 km)
+    UBS_2152312  -> AAE_6102174  US                   538.2  (7.3 km)
+    UBS_2152312  -> AAE_6102174  TC                   120.1  (7.3 km)
+    UBS_2152312  -> AAE_6102174  RM                   107.6  (7.3 km)
+    UBS_2152479  -> AAE_4684281  CONS_ESP            7189.9  (8.8 km)
+    UBS_2152479  -> AAE_4684281  US                  1672.1  (8.8 km)
+    UBS_2152479  -> AAE_4684281  TC                   373.1  (8.8 km)
+    UBS_2152479  -> AAE_4684281  RM                   334.4  (8.8 km)
+    UBS_2152487  -> CAND_AAE_PAMPULHA CONS_ESP            2371.9  (4.4 km)
+    UBS_2152487  -> CAND_AAE_PAMPULHA US                   551.6  (4.4 km)
+    UBS_2152487  -> CAND_AAE_PAMPULHA TC                   123.1  (4.4 km)
+    UBS_2152487  -> CAND_AAE_PAMPULHA RM                   110.3  (4.4 km)
+    UBS_2152495  -> AAE_2146339  CONS_ESP            7208.4  (2.8 km)
+    UBS_2152495  -> AAE_2146339  US                  1676.4  (2.8 km)
+    UBS_2152495  -> AAE_2146339  TC                   374.1  (2.8 km)
+    UBS_2152495  -> AAE_2146339  RM                   335.3  (2.8 km)
+    UBS_2152517  -> CAND_AAE_MARTINS CONS_ESP            2288.5  (2.6 km)
+    UBS_2152517  -> CAND_AAE_MARTINS US                   532.2  (2.6 km)
+    UBS_2152517  -> CAND_AAE_MARTINS TC                   118.8  (2.6 km)
+    UBS_2152517  -> CAND_AAE_MARTINS RM                   106.4  (2.6 km)
+    UBS_2152525  -> AAE_6102174  CONS_ESP            7122.2  (7.5 km)
+    UBS_2152525  -> AAE_6102174  US                  1656.3  (7.5 km)
+    UBS_2152525  -> AAE_6102174  TC                   369.6  (7.5 km)
+    UBS_2152525  -> AAE_6102174  RM                   331.3  (7.5 km)
+    UBS_2152533  -> AAE_6102174  CONS_ESP            2396.0  (10.2 km)
+    UBS_2152533  -> AAE_6102174  US                   557.2  (10.2 km)
+    UBS_2152533  -> AAE_6102174  TC                   124.3  (10.2 km)
+    UBS_2152533  -> AAE_6102174  RM                   111.4  (10.2 km)
+    UBS_2152541  -> AAE_2146339  CONS_ESP            3571.5  (4.3 km)
+    UBS_2152541  -> AAE_2146339  US                   830.6  (4.3 km)
+    UBS_2152541  -> AAE_2146339  TC                   185.3  (4.3 km)
+    UBS_2152541  -> AAE_2146339  RM                   166.1  (4.3 km)
+    UBS_2152568  -> CAND_AAE_PAMPULHA CONS_ESP            3297.3  (2.6 km)
+    UBS_2152568  -> CAND_AAE_PAMPULHA US                   766.8  (2.6 km)
+    UBS_2152568  -> CAND_AAE_PAMPULHA TC                   171.1  (2.6 km)
+    UBS_2152568  -> CAND_AAE_PAMPULHA RM                   153.4  (2.6 km)
+    UBS_2152584  -> AAE_2146339  CONS_ESP            7122.6  (2.6 km)
+    UBS_2152584  -> AAE_2146339  US                  1656.4  (2.6 km)
+    UBS_2152584  -> AAE_2146339  TC                   369.6  (2.6 km)
+    UBS_2152584  -> AAE_2146339  RM                   331.3  (2.6 km)
+    UBS_2152592  -> AAE_6102174  CONS_ESP            7174.3  (6.4 km)
+    UBS_2152592  -> AAE_6102174  US                  1668.4  (6.4 km)
+    UBS_2152592  -> AAE_6102174  TC                   372.3  (6.4 km)
+    UBS_2152592  -> AAE_6102174  RM                   333.7  (6.4 km)
+    UBS_2152606  -> CAND_AAE_PAMPULHA CONS_ESP            2363.5  (2.0 km)
+    UBS_2152606  -> CAND_AAE_PAMPULHA US                   549.6  (2.0 km)
+    UBS_2152606  -> CAND_AAE_PAMPULHA TC                   122.6  (2.0 km)
+    UBS_2152606  -> CAND_AAE_PAMPULHA RM                   109.9  (2.0 km)
+    UBS_2152614  -> AAE_6102174  CONS_ESP            3544.2  (3.0 km)
+    UBS_2152614  -> AAE_6102174  US                   824.2  (3.0 km)
+    UBS_2152614  -> AAE_6102174  TC                   183.9  (3.0 km)
+    UBS_2152614  -> AAE_6102174  RM                   164.8  (3.0 km)
+    UBS_3009068  -> CAND_AAE_MARTINS CONS_ESP            2277.7  (5.7 km)
+    UBS_3009068  -> CAND_AAE_MARTINS US                   529.7  (5.7 km)
+    UBS_3009068  -> CAND_AAE_MARTINS TC                   118.2  (5.7 km)
+    UBS_3009068  -> CAND_AAE_MARTINS RM                   105.9  (5.7 km)
+    UBS_3009084  -> AAE_4684281  CONS_ESP            7151.0  (2.3 km)
+    UBS_3009084  -> AAE_4684281  US                  1663.0  (2.3 km)
+    UBS_3009084  -> AAE_4684281  TC                   371.1  (2.3 km)
+    UBS_3009084  -> AAE_4684281  RM                   332.6  (2.3 km)
+    UBS_3012077  -> CAND_AAE_PAMPULHA CONS_ESP            1176.3  (2.5 km)
+    UBS_3012077  -> CAND_AAE_PAMPULHA US                   273.6  (2.5 km)
+    UBS_3012077  -> CAND_AAE_PAMPULHA TC                    61.0  (2.5 km)
+    UBS_3012077  -> CAND_AAE_PAMPULHA RM                    54.7  (2.5 km)
+    UBS_3012085  -> AAE_4684281  CONS_ESP            2395.6  (6.9 km)
+    UBS_3012085  -> AAE_4684281  US                   557.1  (6.9 km)
+    UBS_3012085  -> AAE_4684281  TC                   124.3  (6.9 km)
+    UBS_3012085  -> AAE_4684281  RM                   111.4  (6.9 km)
+    UBS_3012093  -> AAE_4684281  CONS_ESP            7052.4  (7.8 km)
+    UBS_3012093  -> AAE_4684281  US                  1640.1  (7.8 km)
+    UBS_3012093  -> AAE_4684281  TC                   366.0  (7.8 km)
+    UBS_3012093  -> AAE_4684281  RM                   328.0  (7.8 km)
+    UBS_3012107  -> AAE_4684281  CONS_ESP            3589.9  (7.7 km)
+    UBS_3012107  -> AAE_4684281  US                   834.9  (7.7 km)
+    UBS_3012107  -> AAE_4684281  TC                   186.3  (7.7 km)
+    UBS_3012107  -> AAE_4684281  RM                   167.0  (7.7 km)
+    UBS_3018113  -> AAE_4684281  CONS_ESP            5977.9  (8.7 km)
+    UBS_3018113  -> AAE_4684281  US                  1390.2  (8.7 km)
+    UBS_3018113  -> AAE_4684281  TC                   310.2  (8.7 km)
+    UBS_3018113  -> AAE_4684281  RM                   278.0  (8.7 km)
+    UBS_3032167  -> AAE_6102174  CONS_ESP            2250.4  (5.6 km)
+    UBS_3032167  -> AAE_6102174  US                   523.4  (5.6 km)
+    UBS_3032167  -> AAE_6102174  TC                   116.8  (5.6 km)
+    UBS_3032167  -> AAE_6102174  RM                   104.7  (5.6 km)
+    UBS_3032183  -> AAE_6102174  CONS_ESP            7197.1  (8.2 km)
+    UBS_3032183  -> AAE_6102174  US                  1673.8  (8.2 km)
+    UBS_3032183  -> AAE_6102174  TC                   373.5  (8.2 km)
+    UBS_3032183  -> AAE_6102174  RM                   334.8  (8.2 km)
+    UBS_3035158  -> CAND_AAE_PAMPULHA CONS_ESP            2403.6  (4.8 km)
+    UBS_3035158  -> CAND_AAE_PAMPULHA US                   559.0  (4.8 km)
+    UBS_3035158  -> CAND_AAE_PAMPULHA TC                   124.7  (4.8 km)
+    UBS_3035158  -> CAND_AAE_PAMPULHA RM                   111.8  (4.8 km)
+    UBS_3051617  -> CAND_AAE_PAMPULHA CONS_ESP            5991.1  (5.0 km)
+    UBS_3051617  -> CAND_AAE_PAMPULHA US                  1393.3  (5.0 km)
+    UBS_3051617  -> CAND_AAE_PAMPULHA TC                   310.9  (5.0 km)
+    UBS_3051617  -> CAND_AAE_PAMPULHA RM                   278.7  (5.0 km)
+    UBS_3111075  -> AAE_6102174  CONS_ESP            6001.2  (10.4 km)
+    UBS_3111075  -> AAE_6102174  US                  1395.6  (10.4 km)
+    UBS_3111075  -> AAE_6102174  TC                   311.4  (10.4 km)
+    UBS_3111075  -> AAE_6102174  RM                   279.1  (10.4 km)
+    UBS_3197727  -> AAE_6102174  CONS_ESP            2306.2  (10.5 km)
+    UBS_3197727  -> AAE_6102174  US                   536.3  (10.5 km)
+    UBS_3197727  -> AAE_6102174  TC                   119.7  (10.5 km)
+    UBS_3197727  -> AAE_6102174  RM                   107.3  (10.5 km)
+    UBS_3439941  -> CAND_AAE_PAMPULHA CONS_ESP            7131.0  (9.1 km)
+    UBS_3439941  -> CAND_AAE_PAMPULHA US                  1658.4  (9.1 km)
+    UBS_3439941  -> CAND_AAE_PAMPULHA TC                   370.0  (9.1 km)
+    UBS_3439941  -> CAND_AAE_PAMPULHA RM                   331.7  (9.1 km)
+    UBS_3516873  -> CAND_AAE_PAMPULHA CONS_ESP            2312.6  (5.5 km)
+    UBS_3516873  -> CAND_AAE_PAMPULHA US                   537.8  (5.5 km)
+    UBS_3516873  -> CAND_AAE_PAMPULHA TC                   120.0  (5.5 km)
+    UBS_3516873  -> CAND_AAE_PAMPULHA RM                   107.6  (5.5 km)
+    UBS_5053854  -> CAND_AAE_MARTINS CONS_ESP            2340.2  (4.1 km)
+    UBS_5053854  -> CAND_AAE_MARTINS US                   544.2  (4.1 km)
+    UBS_5053854  -> CAND_AAE_MARTINS TC                   121.4  (4.1 km)
+    UBS_5053854  -> CAND_AAE_MARTINS RM                   108.8  (4.1 km)
+    UBS_5090350  -> CAND_AAE_PAMPULHA CONS_ESP            2278.1  (3.6 km)
+    UBS_5090350  -> CAND_AAE_PAMPULHA US                   529.8  (3.6 km)
+    UBS_5090350  -> CAND_AAE_PAMPULHA TC                   118.2  (3.6 km)
+    UBS_5090350  -> CAND_AAE_PAMPULHA RM                   106.0  (3.6 km)
+    UBS_5090377  -> CAND_AAE_MARTINS CONS_ESP            7201.1  (7.1 km)
+    UBS_5090377  -> CAND_AAE_MARTINS US                  1674.7  (7.1 km)
+    UBS_5090377  -> CAND_AAE_MARTINS TC                   373.7  (7.1 km)
+    UBS_5090377  -> CAND_AAE_MARTINS RM                   334.9  (7.1 km)
+    UBS_5090881  -> AAE_4684281  CONS_ESP            2375.9  (6.3 km)
+    UBS_5090881  -> AAE_4684281  US                   552.5  (6.3 km)
+    UBS_5090881  -> AAE_4684281  TC                   123.3  (6.3 km)
+    UBS_5090881  -> AAE_4684281  RM                   110.5  (6.3 km)
+    UBS_5272629  -> CAND_AAE_PAMPULHA CONS_ESP            2258.9  (9.0 km)
+    UBS_5272629  -> CAND_AAE_PAMPULHA US                   525.3  (9.0 km)
+    UBS_5272629  -> CAND_AAE_PAMPULHA TC                   117.2  (9.0 km)
+    UBS_5272629  -> CAND_AAE_PAMPULHA RM                   105.1  (9.0 km)
+    UBS_5362776  -> CAND_AAE_PAMPULHA CONS_ESP            2336.2  (4.8 km)
+    UBS_5362776  -> CAND_AAE_PAMPULHA US                   543.3  (4.8 km)
+    UBS_5362776  -> CAND_AAE_PAMPULHA TC                   121.2  (4.8 km)
+    UBS_5362776  -> CAND_AAE_PAMPULHA RM                   108.7  (4.8 km)
+    UBS_5613469  -> AAE_4684281  CONS_ESP            4758.3  (1.6 km)
+    UBS_5613469  -> AAE_4684281  US                  1106.6  (1.6 km)
+    UBS_5613469  -> AAE_4684281  TC                   246.9  (1.6 km)
+    UBS_5613469  -> AAE_4684281  RM                   221.3  (1.6 km)
+    UBS_5861160  -> CAND_AAE_PAMPULHA CONS_ESP            2307.8  (5.6 km)
+    UBS_5861160  -> CAND_AAE_PAMPULHA US                   536.7  (5.6 km)
+    UBS_5861160  -> CAND_AAE_PAMPULHA TC                   119.8  (5.6 km)
+    UBS_5861160  -> CAND_AAE_PAMPULHA RM                   107.3  (5.6 km)
+    UBS_6908616  -> AAE_4684281  CONS_ESP            5884.1  (8.3 km)
+    UBS_6908616  -> AAE_4684281  US                  1368.4  (8.3 km)
+    UBS_6908616  -> AAE_4684281  TC                   305.3  (8.3 km)
+    UBS_6908616  -> AAE_4684281  RM                   273.7  (8.3 km)
+    UBS_7044534  -> CAND_AAE_MARTINS CONS_ESP            2389.2  (9.3 km)
+    UBS_7044534  -> CAND_AAE_MARTINS US                   555.6  (9.3 km)
+    UBS_7044534  -> CAND_AAE_MARTINS TC                   124.0  (9.3 km)
+    UBS_7044534  -> CAND_AAE_MARTINS RM                   111.1  (9.3 km)
+    UBS_7067771  -> AAE_4684281  CONS_ESP            7165.9  (5.6 km)
+    UBS_7067771  -> AAE_4684281  US                  1666.5  (5.6 km)
+    UBS_7067771  -> AAE_4684281  TC                   371.8  (5.6 km)
+    UBS_7067771  -> AAE_4684281  RM                   333.3  (5.6 km)
+    UBS_7067836  -> CAND_AAE_PAMPULHA CONS_ESP            1891.2  (3.6 km)
+    UBS_7067836  -> CAND_AAE_PAMPULHA US                   439.8  (3.6 km)
+    UBS_7067836  -> CAND_AAE_PAMPULHA TC                    98.1  (3.6 km)
+    UBS_7067836  -> CAND_AAE_PAMPULHA RM                    88.0  (3.6 km)
+    UBS_7176147  -> CAND_AAE_MARTINS CONS_ESP            2085.6  (8.5 km)
+    UBS_7176147  -> CAND_AAE_MARTINS US                   485.0  (8.5 km)
+    UBS_7176147  -> CAND_AAE_MARTINS TC                   108.2  (8.5 km)
+    UBS_7176147  -> CAND_AAE_MARTINS RM                    97.0  (8.5 km)
+    UBS_7424019  -> AAE_6102174  CONS_ESP            3579.9  (6.7 km)
+    UBS_7424019  -> AAE_6102174  US                   832.5  (6.7 km)
+    UBS_7424019  -> AAE_6102174  TC                   185.8  (6.7 km)
+    UBS_7424019  -> AAE_6102174  RM                   166.5  (6.7 km)
+    UBS_7476620  -> AAE_6102174  CONS_ESP            2355.1  (11.5 km)
+    UBS_7476620  -> AAE_6102174  US                   547.7  (11.5 km)
+    UBS_7476620  -> AAE_6102174  TC                   122.2  (11.5 km)
+    UBS_7476620  -> AAE_6102174  RM                   109.5  (11.5 km)
+    UBS_7523483  -> AAE_2146339  CONS_ESP            3575.9  (2.4 km)
+    UBS_7523483  -> AAE_2146339  US                   831.6  (2.4 km)
+    UBS_7523483  -> AAE_2146339  TC                   185.6  (2.4 km)
+    UBS_7523483  -> AAE_2146339  RM                   166.3  (2.4 km)
+    UBS_7523491  -> AAE_6102174  CONS_ESP            2116.9  (4.2 km)
+    UBS_7523491  -> AAE_6102174  US                   492.3  (4.2 km)
+    UBS_7523491  -> AAE_6102174  TC                   109.9  (4.2 km)
+    UBS_7523491  -> AAE_6102174  RM                    98.5  (4.2 km)
+    UBS_7523505  -> CAND_AAE_PAMPULHA CONS_ESP            2095.7  (8.5 km)
+    UBS_7523505  -> CAND_AAE_PAMPULHA US                   487.4  (8.5 km)
+    UBS_7523505  -> CAND_AAE_PAMPULHA TC                   108.7  (8.5 km)
+    UBS_7523505  -> CAND_AAE_PAMPULHA RM                    97.5  (8.5 km)
+    UBS_7690649  -> AAE_4684281  CONS_ESP            6969.8  (5.7 km)
+    UBS_7690649  -> AAE_4684281  US                  1620.9  (5.7 km)
+    UBS_7690649  -> AAE_4684281  TC                   361.7  (5.7 km)
+    UBS_7690649  -> AAE_4684281  RM                   324.2  (5.7 km)
+    UBS_7774230  -> AAE_6102174  CONS_ESP             504.0  (22.8 km)
+    UBS_7774230  -> AAE_6102174  US                   117.2  (22.8 km)
+    UBS_7774230  -> AAE_6102174  TC                    26.2  (22.8 km)
+    UBS_7774230  -> AAE_6102174  RM                    23.4  (22.8 km)
+    UBS_7861842  -> AAE_4684281  CONS_ESP            7170.7  (7.2 km)
+    UBS_7861842  -> AAE_4684281  US                  1667.6  (7.2 km)
+    UBS_7861842  -> AAE_4684281  TC                   372.1  (7.2 km)
+    UBS_7861842  -> AAE_4684281  RM                   333.5  (7.2 km)
+    UBS_9444920  -> AAE_2146339  CONS_ESP            7158.2  (2.0 km)
+    UBS_9444920  -> AAE_2146339  US                  1664.7  (2.0 km)
+    UBS_9444920  -> AAE_2146339  TC                   371.5  (2.0 km)
+    UBS_9444920  -> AAE_2146339  RM                   332.9  (2.0 km)
+    UBS_9496742  -> AAE_4684281  CONS_ESP            7153.8  (7.0 km)
+    UBS_9496742  -> AAE_4684281  US                  1663.7  (7.0 km)
+    UBS_9496742  -> AAE_4684281  TC                   371.2  (7.0 km)
+    UBS_9496742  -> AAE_4684281  RM                   332.7  (7.0 km)
+    UBS_9496769  -> AAE_4684281  CONS_ESP            5933.4  (4.8 km)
+    UBS_9496769  -> AAE_4684281  US                  1379.9  (4.8 km)
+    UBS_9496769  -> AAE_4684281  TC                   307.9  (4.8 km)
+    UBS_9496769  -> AAE_4684281  RM                   276.0  (4.8 km)
+    UBS_9496777  -> AAE_2146339  CONS_ESP            7167.1  (4.9 km)
+    UBS_9496777  -> AAE_2146339  US                  1666.8  (4.9 km)
+    UBS_9496777  -> AAE_2146339  TC                   371.9  (4.9 km)
+    UBS_9496777  -> AAE_2146339  RM                   333.4  (4.9 km)
+    CAND_UBS_FRUTA_DO_CONDE -> CAND_AAE_MARTINS CONS_ESP             599.8  (8.9 km)
+    CAND_UBS_FRUTA_DO_CONDE -> CAND_AAE_MARTINS US                   139.5  (8.9 km)
+    CAND_UBS_FRUTA_DO_CONDE -> CAND_AAE_MARTINS TC                    31.1  (8.9 km)
+    CAND_UBS_FRUTA_DO_CONDE -> CAND_AAE_MARTINS RM                    27.9  (8.9 km)
+    CAND_UBS_05001146 -> AAE_6102174  CONS_ESP             263.0  (13.8 km)
+    CAND_UBS_05001146 -> AAE_6102174  US                    61.2  (13.8 km)
+    CAND_UBS_05001146 -> AAE_6102174  TC                    13.6  (13.8 km)
+    CAND_UBS_05001146 -> AAE_6102174  RM                    12.2  (13.8 km)
+    CAND_UBS_20000008 -> AAE_4684281  CONS_ESP             162.8  (42.5 km)
+    CAND_UBS_20000008 -> AAE_4684281  US                    37.9  (42.5 km)
+    CAND_UBS_20000008 -> AAE_4684281  TC                     8.4  (42.5 km)
+    CAND_UBS_20000008 -> AAE_4684281  RM                     7.6  (42.5 km)
+    CAND_UBS_20000038 -> AAE_6102174  CONS_ESP             160.8  (40.3 km)
+    CAND_UBS_20000038 -> AAE_6102174  US                    37.4  (40.3 km)
+    CAND_UBS_20000038 -> AAE_6102174  TC                     8.3  (40.3 km)
+    CAND_UBS_20000038 -> AAE_6102174  RM                     7.5  (40.3 km)
+    CAND_UBS_20000001 -> AAE_4684281  CONS_ESP             332.0  (43.1 km)
+    CAND_UBS_20000001 -> AAE_4684281  US                    77.2  (43.1 km)
+    CAND_UBS_20000001 -> AAE_4684281  TC                    17.2  (43.1 km)
+    CAND_UBS_20000001 -> AAE_4684281  RM                    15.4  (43.1 km)
+    CAND_UBS_05001115 -> AAE_2146339  CONS_ESP             511.6  (9.0 km)
+    CAND_UBS_05001115 -> AAE_2146339  US                   119.0  (9.0 km)
+    CAND_UBS_05001115 -> AAE_2146339  TC                    26.5  (9.0 km)
+    CAND_UBS_05001115 -> AAE_2146339  RM                    23.8  (9.0 km)
+    CAND_UBS_20000004 -> AAE_4684281  CONS_ESP             106.6  (32.9 km)
+    CAND_UBS_20000004 -> AAE_4684281  US                    24.8  (32.9 km)
+    CAND_UBS_20000004 -> AAE_4684281  TC                     5.5  (32.9 km)
+    CAND_UBS_20000004 -> AAE_4684281  RM                     5.0  (32.9 km)
+    CAND_UBS_20000052 -> AAE_4684281  CONS_ESP             281.5  (27.5 km)
+    CAND_UBS_20000052 -> AAE_4684281  US                    65.5  (27.5 km)
+    CAND_UBS_20000052 -> AAE_4684281  TC                    14.6  (27.5 km)
+    CAND_UBS_20000052 -> AAE_4684281  RM                    13.1  (27.5 km)
+    CAND_UBS_20000003 -> AAE_4684281  CONS_ESP             102.6  (56.8 km)
+    CAND_UBS_20000003 -> AAE_4684281  US                    23.9  (56.8 km)
+    CAND_UBS_20000003 -> AAE_4684281  TC                     5.3  (56.8 km)
+    CAND_UBS_20000003 -> AAE_4684281  RM                     4.8  (56.8 km)
+    CAND_UBS_20000040 -> AAE_4684281  CONS_ESP             178.4  (43.4 km)
+    CAND_UBS_20000040 -> AAE_4684281  US                    41.5  (43.4 km)
+    CAND_UBS_20000040 -> AAE_4684281  TC                     9.3  (43.4 km)
+    CAND_UBS_20000040 -> AAE_4684281  RM                     8.3  (43.4 km)
+    CAND_UBS_05001121 -> AAE_2146339  CONS_ESP             115.9  (34.9 km)
+    CAND_UBS_05001121 -> AAE_2146339  US                    26.9  (34.9 km)
+    CAND_UBS_05001121 -> AAE_2146339  TC                     6.0  (34.9 km)
+    CAND_UBS_05001121 -> AAE_2146339  RM                     5.4  (34.9 km)
+    CAND_UBS_20000026 -> AAE_2146339  CONS_ESP             243.0  (22.1 km)
+    CAND_UBS_20000026 -> AAE_2146339  US                    56.5  (22.1 km)
+    CAND_UBS_20000026 -> AAE_2146339  TC                    12.6  (22.1 km)
+    CAND_UBS_20000026 -> AAE_2146339  RM                    11.3  (22.1 km)
+    CAND_UBS_05000570 -> AAE_4684281  CONS_ESP             177.2  (26.6 km)
+    CAND_UBS_05000570 -> AAE_4684281  US                    41.2  (26.6 km)
+    CAND_UBS_05000570 -> AAE_4684281  TC                     9.2  (26.6 km)
+    CAND_UBS_05000570 -> AAE_4684281  RM                     8.2  (26.6 km)
+    CAND_UBS_20000049 -> AAE_4684281  CONS_ESP             141.1  (30.8 km)
+    CAND_UBS_20000049 -> AAE_4684281  US                    32.8  (30.8 km)
+    CAND_UBS_20000049 -> AAE_4684281  TC                     7.3  (30.8 km)
+    CAND_UBS_20000049 -> AAE_4684281  RM                     6.6  (30.8 km)
+    CAND_UBS_05001106 -> AAE_4684281  CONS_ESP              39.3  (38.5 km)
+    CAND_UBS_05001106 -> AAE_4684281  US                     9.1  (38.5 km)
+    CAND_UBS_05001106 -> AAE_4684281  TC                     2.0  (38.5 km)
+    CAND_UBS_05001106 -> AAE_4684281  RM                     1.8  (38.5 km)
+    CAND_UBS_20000013 -> AAE_4684281  CONS_ESP              34.1  (43.0 km)
+    CAND_UBS_20000013 -> AAE_4684281  US                     7.9  (43.0 km)
+    CAND_UBS_20000013 -> AAE_4684281  TC                     1.8  (43.0 km)
+    CAND_UBS_20000013 -> AAE_4684281  RM                     1.6  (43.0 km)
+    CAND_UBS_20000018 -> AAE_4684281  CONS_ESP              26.1  (38.4 km)
+    CAND_UBS_20000018 -> AAE_4684281  US                     6.1  (38.4 km)
+    CAND_UBS_20000018 -> AAE_4684281  TC                     1.4  (38.4 km)
+    CAND_UBS_20000018 -> AAE_4684281  RM                     1.2  (38.4 km)
+    CAND_UBS_25000007 -> AAE_6102174  CONS_ESP             143.5  (50.0 km)
+    CAND_UBS_25000007 -> AAE_6102174  US                    33.4  (50.0 km)
+    CAND_UBS_25000007 -> AAE_6102174  TC                     7.4  (50.0 km)
+    CAND_UBS_25000007 -> AAE_6102174  RM                     6.7  (50.0 km)
+
+--- Atencao terciaria ---
+HOSP_2146355 [exist] atendimentos/ano=20080
+HOSP_6601804 [exist] atendimentos/ano=17262
+HOSP_2151855 [exist] atendimentos/ano=4861
+HOSP_473502  [exist] atendimentos/ano=0
+HOSP_2151839 [exist] atendimentos/ano=0
+    HOSP_2146355 LEITO_CLIN     200  (uso 100%)
+    HOSP_2146355 LEITO_CIR      113  (uso 100%)
+    HOSP_2146355 LEITO_OBST      36  (uso 68%)
+    HOSP_2146355 LEITO_PED       37  (uso 100%)
+    HOSP_2146355 LEITO_UCI_N     17  (uso 58%)
+    HOSP_2146355 LEITO_UTI_A     35  (uso 90%)
+    HOSP_2146355 LEITO_UTI_P      7  (uso 54%)
+    HOSP_2146355 LEITO_UTI_N     15  (uso 29%)
+    HOSP_2146355 MEDICO         196  (uso 71%)
+    HOSP_2146355 ENFERMEIRO     200  (uso 90%)
+    HOSP_2146355 TEC_ENF        463  (uso 65%)
+    HOSP_6601804 LEITO_CLIN     172  (uso 100%)
+    HOSP_6601804 LEITO_CIR       97  (uso 100%)
+    HOSP_6601804 LEITO_OBST      31  (uso 68%)
+    HOSP_6601804 LEITO_PED       32  (uso 99%)
+    HOSP_6601804 LEITO_UCI_N     15  (uso 57%)
+    HOSP_6601804 LEITO_UTI_A     46  (uso 59%)
+    HOSP_6601804 LEITO_UTI_P      4  (uso 81%)
+    HOSP_6601804 LEITO_UTI_N     10  (uso 38%)
+    HOSP_6601804 MEDICO         146  (uso 82%)
+    HOSP_6601804 ENFERMEIRO     156  (uso 100%)
+    HOSP_6601804 TEC_ENF        407  (uso 63%)
+    HOSP_2151855 LEITO_CLIN      60  (uso 81%)
+    HOSP_2151855 LEITO_CIR       28  (uso 97%)
+    HOSP_2151855 LEITO_OBST       6  (uso 98%)
+    HOSP_2151855 LEITO_PED        9  (uso 99%)
+    HOSP_2151855 LEITO_UCI_N      3  (uso 80%)
+    HOSP_2151855 LEITO_UTI_A     20  (uso 38%)
+    HOSP_2151855 LEITO_UTI_P      1  (uso 91%)
+    HOSP_2151855 LEITO_UTI_N      2  (uso 53%)
+    HOSP_2151855 MEDICO          34  (uso 100%)
+    HOSP_2151855 ENFERMEIRO      44  (uso 99%)
+    HOSP_2151855 TEC_ENF        124  (uso 59%)
+    HOSP_473502  LEITO_PED       28  (uso 0%)
+    HOSP_473502  MEDICO          10  (uso 0%)
+    HOSP_473502  ENFERMEIRO      15  (uso 0%)
+    HOSP_473502  TEC_ENF         28  (uso 0%)
+    HOSP_2151839 LEITO_CLIN       2  (uso 0%)
+    HOSP_2151839 LEITO_CIR       20  (uso 0%)
+    HOSP_2151839 LEITO_PED        1  (uso 0%)
+    HOSP_2151839 MEDICO          13  (uso 0%)
+    HOSP_2151839 ENFERMEIRO       7  (uso 0%)
+    HOSP_2151839 TEC_ENF         14  (uso 0%)
+    AAE_4684281  -> HOSP_6601804 INT_CLIN            6325.3  (6.6 km)
+    AAE_4684281  -> HOSP_6601804 INT_CIR             6350.5  (6.6 km)
+    AAE_4684281  -> HOSP_6601804 INT_OBST            2268.0  (6.6 km)
+    AAE_4684281  -> HOSP_6601804 INT_PED             2041.2  (6.6 km)
+    AAE_4684281  -> HOSP_6601804 INT_NEO              277.2  (6.6 km)
+    AAE_2146339  -> HOSP_2146355 INT_CLIN            2537.4  (0.0 km)
+    AAE_2146339  -> HOSP_2146355 INT_CIR             2547.5  (0.0 km)
+    AAE_2146339  -> HOSP_2146355 INT_OBST             909.8  (0.0 km)
+    AAE_2146339  -> HOSP_2146355 INT_PED              818.8  (0.0 km)
+    AAE_2146339  -> HOSP_2146355 INT_NEO              111.2  (0.0 km)
+    AAE_6102174  -> HOSP_2146355 INT_CLIN            2506.8  (1.2 km)
+    AAE_6102174  -> HOSP_2146355 INT_CIR             2516.8  (1.2 km)
+    AAE_6102174  -> HOSP_2146355 INT_OBST             898.8  (1.2 km)
+    AAE_6102174  -> HOSP_2146355 INT_PED              809.0  (1.2 km)
+    AAE_6102174  -> HOSP_2146355 INT_NEO              109.9  (1.2 km)
+    CAND_AAE_MARTINS -> HOSP_2151855 INT_CLIN            1781.1  (1.6 km)
+    CAND_AAE_MARTINS -> HOSP_2151855 INT_CIR             1788.2  (1.6 km)
+    CAND_AAE_MARTINS -> HOSP_2151855 INT_OBST             638.6  (1.6 km)
+    CAND_AAE_MARTINS -> HOSP_2151855 INT_PED              574.8  (1.6 km)
+    CAND_AAE_MARTINS -> HOSP_2151855 INT_NEO               78.1  (1.6 km)
+    CAND_AAE_PAMPULHA -> HOSP_2146355 INT_CLIN            2313.7  (9.1 km)
+    CAND_AAE_PAMPULHA -> HOSP_2146355 INT_CIR             2322.9  (9.1 km)
+    CAND_AAE_PAMPULHA -> HOSP_2146355 INT_OBST             829.6  (9.1 km)
+    CAND_AAE_PAMPULHA -> HOSP_2146355 INT_PED              746.6  (9.1 km)
+    CAND_AAE_PAMPULHA -> HOSP_2146355 INT_NEO              101.4  (9.1 km)
+Writing T_setores...
+Writing T_ubs...
+Model has been successfully processed

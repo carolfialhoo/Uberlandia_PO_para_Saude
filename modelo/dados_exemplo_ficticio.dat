@@ -1,0 +1,90 @@
+# DADOS FICTICIOS - apenas para validar o modelo v0.1 (nao usar em analises)
+
+data;
+
+set I := S01 S02 S03 S04 S05 S06 S07 S08;
+set J1 := UBS_CENTRO C_LESTE C_NORTE C_OESTE;
+set J2 := AAE_CENTRO C_AAE_LESTE;
+set J3 := HOSP_REG C_HOSP;
+set S2 := CONSULTA_ESP EXAME_IMG;
+set S3 := INTERNACAO;
+set R2 := MED_ESP ENF TEC_IMG;
+set R3 := MEDICO ENF TEC_ENF;
+
+param modo := 1;
+param orcamento := 0;
+param coerente := 1;
+param prop_SUS := 0.75;
+
+# Populacao (POP) + distancia em km de cada setor a cada local de APS
+param matriz01:
+      POP  UBS_CENTRO     C_LESTE     C_NORTE     C_OESTE :=
+S01   3500        3.68        8.72        8.72        3.90
+S02   4200        1.30        5.81        6.63        3.68
+S03   2800        3.68        4.69        7.91        6.50
+S04   5100        5.20        1.30        6.50        7.91
+S05   3900        2.91        6.63        3.68        1.84
+S06   4600        4.11        4.69        1.30        4.69
+S07   2400        7.58        2.91        5.36        9.46
+S08   3500        7.58        5.36        2.91        8.32;
+
+param d12:    AAE_CENTRO  C_AAE_LESTE :=
+UBS_CENTRO          1.84         8.22
+C_LESTE             3.90         2.91
+C_NORTE             3.90         7.00
+C_OESTE             3.90        10.48;
+
+param d23:   HOSP_REG    C_HOSP :=
+AAE_CENTRO       23.90      1.84
+C_AAE_LESTE      17.44      5.20;
+
+# Tempos (t01, t12, t23) omitidos: o modelo estima pela velocidade padrao.
+
+# ---------------- APS ----------------
+param existente1 := UBS_CENTRO 1;
+param porte_min1 := UBS_CENTRO 2;
+param ESF_atual  := UBS_CENTRO 2;
+param ACS_atual  := UBS_CENTRO 6;
+param ESB_atual  := UBS_CENTRO 1;
+
+#        minESF maxESF minESB maxESB minACS maxACS minEMU maxEMU custo_porte(R$/ano)
+param:   minESF maxESF minESB maxESB minACS maxACS minEMU maxEMU custo_porte :=
+1          1      1      0      1      0      6      0      0      150000
+2          2      2      0      2      0     12      0      1      220000
+3          3      3      1      3      0     18      0      1      290000
+4          4      4      1      4      0     24      1      1      360000
+5          5      6      2      6      0     36      1      2      450000;
+
+# Custos anuais por equipe/agente (ficticios)
+param custo_ESF := 840000;
+param custo_ESB := 300000;
+param custo_ACS :=  40000;
+param custo_EMU := 600000;
+
+# ---------------- Demanda niveis 2 e 3 (FICTICIO - substituir pela Portaria 1.631) ----------------
+param taxa2 := CONSULTA_ESP 0.50  EXAME_IMG 0.20;      # por habitante SUS/ano
+param prop23 := [CONSULTA_ESP, INTERNACAO] 0.15;
+
+# ---------------- Secundaria ----------------
+param existente2  := AAE_CENTRO 1;
+param custo_fixo2 := AAE_CENTRO 400000  C_AAE_LESTE 600000;
+param:  salario2  carga2  n2_max_padrao :=
+MED_ESP  250000    1600      10
+ENF      120000    1700      10
+TEC_IMG   70000    1700       6;
+param consumo2:  MED_ESP  ENF   TEC_IMG :=
+CONSULTA_ESP      0.25    0.10    0
+EXAME_IMG         0.05    0       0.33;
+param n2_atual := [AAE_CENTRO, MED_ESP] 1  [AAE_CENTRO, ENF] 1;
+
+# ---------------- Terciaria ----------------
+param existente3  := HOSP_REG 1;
+param custo_fixo3 := HOSP_REG 3000000  C_HOSP 5000000;
+param:  salario3  carga3  n3_max_padrao :=
+MEDICO   300000    1600      40
+ENF      120000    1700      60
+TEC_ENF   60000    1700     150;
+param consumo3:  MEDICO  ENF  TEC_ENF :=
+INTERNACAO         6     15     40;
+
+end;
